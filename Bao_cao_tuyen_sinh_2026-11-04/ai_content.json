@@ -1,0 +1,526 @@
+{
+  "sources": {
+    "A1": [
+      "Harvard · Tương tác đáp qua lại",
+      "https://developingchild.harvard.edu/resources/briefs/5-steps-for-brain-building-serve-and-return/"
+    ],
+    "A2": [
+      "UNICEF · Gợi ý tương tác trong hai năm đầu",
+      "https://www.unicef.org/parenting/child-development/baby-tips"
+    ],
+    "A3": [
+      "CDC · Chơi theo sự dẫn dắt của trẻ",
+      "https://www.cdc.gov/parenting-toddlers/communication/child-led-play.html"
+    ],
+    "A4": [
+      "CDC · Nếp sinh hoạt nhất quán",
+      "https://www.cdc.gov/parenting-toddlers/structure-rules/index.html"
+    ],
+    "A5": [
+      "Meta · Nhãn nội dung được tạo bằng AI",
+      "https://about.fb.com/news/2024/04/metas-approach-to-labeling-ai-generated-content-and-manipulated-media/"
+    ],
+    "A6": [
+      "CDC · Giao tiếp và lắng nghe trẻ",
+      "https://www.cdc.gov/parenting-toddlers/communication/index.html"
+    ],
+    "A7": [
+      "CDC · Đồng hành cùng cảm xúc của trẻ",
+      "https://www.cdc.gov/parenting-toddlers/noticing-and-naming/emotion-coaching.html"
+    ],
+    "A8": [
+      "CDC · Khen hành vi cụ thể",
+      "https://www.cdc.gov/parenting-toddlers/responding-to-behavior/using-rewards.html"
+    ]
+  },
+  "pillars": [
+    {
+      "id": "play",
+      "name": "Chơi & tương tác",
+      "count": 9,
+      "color": "#28705a",
+      "series": "Chơi cùng con"
+    },
+    {
+      "id": "language",
+      "name": "Ngôn ngữ & giao tiếp",
+      "count": 9,
+      "color": "#91b573",
+      "series": "Một phút trò chuyện"
+    },
+    {
+      "id": "emotion",
+      "name": "Cảm xúc & nếp sống",
+      "count": 6,
+      "color": "#c69343",
+      "series": "Hiểu con từng chút"
+    },
+    {
+      "id": "school",
+      "name": "Chuẩn bị đi nhà trẻ",
+      "count": 6,
+      "color": "#6a9794",
+      "series": "Bước đầu đến lớp"
+    }
+  ],
+  "topics": [
+    {
+      "day": 1,
+      "pillar": "language",
+      "age": "0–12 tháng",
+      "title": "Con ê a, ba mẹ đáp lại thế nào?",
+      "idea": "Nhìn con, đáp lại âm thanh và chờ lượt.",
+      "visual": "Hoạt hình mẹ và bé; bong bóng âm thanh luân phiên.",
+      "cta": "Lưu để thử lúc trò chuyện.",
+      "source": "A1"
+    },
+    {
+      "day": 2,
+      "pillar": "play",
+      "age": "24–36 tháng",
+      "title": "5 phút chơi cùng con: ai dẫn trò?",
+      "idea": "Quan sát món con chọn; chơi theo hứng thú của con.",
+      "visual": "Hai cảnh: người lớn điều khiển / cùng chơi theo trẻ.",
+      "cta": "Theo dõi series Chơi cùng con.",
+      "source": "A3"
+    },
+    {
+      "day": 3,
+      "pillar": "emotion",
+      "age": "24–36 tháng",
+      "title": "Thay câu ‘Nín ngay’ bằng lời nào?",
+      "idea": "Khi cả hai bình tĩnh, gọi tên cảm xúc bằng lời gần gũi.",
+      "visual": "Tình huống hoạt hình; phụ đề câu nói mẫu.",
+      "cta": "Ba mẹ hay gặp tình huống nào?",
+      "source": "A7"
+    },
+    {
+      "day": 4,
+      "pillar": "school",
+      "age": "6–36 tháng",
+      "title": "Đi xem trường: hỏi gì về giờ ăn?",
+      "idea": "Hỏi cách hỗ trợ, trao đổi với gia đình và nhu cầu riêng.",
+      "visual": "Ba ô câu hỏi cạnh bàn ăn minh họa.",
+      "cta": "Lưu danh sách trước khi tham quan.",
+      "source": null
+    },
+    {
+      "day": 5,
+      "pillar": "language",
+      "age": "6–24 tháng",
+      "title": "Gọi tên điều con đang nhìn",
+      "idea": "Nói về món đồ con chú ý; dùng lời ngắn, gần gũi.",
+      "visual": "Bé nhìn quả bóng; nhãn từ xuất hiện cạnh đồ vật.",
+      "cta": "Hôm nay thử với một món đồ quen.",
+      "source": "A2"
+    },
+    {
+      "day": 6,
+      "pillar": "play",
+      "age": "12–24 tháng",
+      "title": "Chơi ú òa, thêm một lượt tương tác",
+      "idea": "Quan sát phản ứng và lặp lại khi con còn hứng thú.",
+      "visual": "Nhân vật cùng chiếc khăn; nhịp xuất hiện nhẹ nhàng.",
+      "cta": "Lưu vào danh sách trò chơi ở nhà.",
+      "source": "A2"
+    },
+    {
+      "day": 7,
+      "pillar": "school",
+      "age": "6–36 tháng",
+      "title": "Ngày đầu đi học: chuẩn bị câu hỏi nào?",
+      "idea": "Hỏi lịch làm quen, người phụ trách và cách cập nhật.",
+      "visual": "Lịch làm quen minh họa + thẻ ba câu hỏi.",
+      "cta": "Xem bài ghim để kết nối với THÉ.",
+      "source": null
+    },
+    {
+      "day": 8,
+      "pillar": "language",
+      "age": "12–24 tháng",
+      "title": "Con chỉ tay: một cơ hội trò chuyện",
+      "idea": "Cùng nhìn điều con chỉ và gọi tên bằng lời đơn giản.",
+      "visual": "Hướng nhìn của ba mẹ và bé gặp nhau ở đồ vật.",
+      "cta": "Theo dõi Một phút trò chuyện.",
+      "source": "A2"
+    },
+    {
+      "day": 9,
+      "pillar": "play",
+      "age": "24–36 tháng",
+      "title": "Xếp khối: cùng chơi thay vì làm hộ",
+      "idea": "Bắt chước cách chơi, mô tả điều con đang làm.",
+      "visual": "Hai bộ khối lớn; người lớn cùng làm theo.",
+      "cta": "Thử một lượt chơi theo con.",
+      "source": "A6"
+    },
+    {
+      "day": 10,
+      "pillar": "emotion",
+      "age": "24–36 tháng",
+      "title": "Chuyển từ chơi sang cất đồ nhẹ nhàng",
+      "idea": "Báo bước tiếp theo; giữ trình tự ngắn, dễ đoán.",
+      "visual": "Ba thẻ: chơi → cùng cất → hoạt động tiếp theo.",
+      "cta": "Lưu để thử với nếp sinh hoạt nhà mình.",
+      "source": "A4"
+    },
+    {
+      "day": 11,
+      "pillar": "language",
+      "age": "12–24 tháng",
+      "title": "Xem sách tranh, chưa cần đọc hết chữ",
+      "idea": "Cùng chỉ hình và trò chuyện về điều con chú ý.",
+      "visual": "Trang sách hình to; từ khóa xuất hiện theo ánh nhìn.",
+      "cta": "Chọn một trang để cùng xem hôm nay.",
+      "source": "A2"
+    },
+    {
+      "day": 12,
+      "pillar": "school",
+      "age": "6–36 tháng",
+      "title": "Giờ ngủ ở lớp: phụ huynh nên hỏi gì?",
+      "idea": "Hỏi cách cô hỗ trợ và trao đổi thói quen của bé.",
+      "visual": "Không gian ngủ hoạt hình; checklist câu hỏi.",
+      "cta": "Xem bài ghim để kết nối với THÉ.",
+      "source": null
+    },
+    {
+      "day": 13,
+      "pillar": "play",
+      "age": "24–36 tháng",
+      "title": "Chơi cùng con mà không hỏi dồn",
+      "idea": "Bớt câu hỏi kiểm tra; mô tả điều đang diễn ra.",
+      "visual": "Bong bóng câu hỏi đổi thành câu mô tả.",
+      "cta": "Thử một câu mô tả trong lúc chơi.",
+      "source": "A6"
+    },
+    {
+      "day": 14,
+      "pillar": "emotion",
+      "age": "24–36 tháng",
+      "title": "Một chuỗi sinh hoạt dễ nhớ cho trẻ",
+      "idea": "Chọn vài bước phù hợp; lặp lại nhất quán.",
+      "visual": "Ba hình liên tiếp của một nếp sinh hoạt gia đình.",
+      "cta": "Theo dõi Hiểu con từng chút.",
+      "source": "A4"
+    },
+    {
+      "day": 15,
+      "pillar": "language",
+      "age": "0–12 tháng",
+      "title": "Một khoảng chờ trong cuộc trò chuyện",
+      "idea": "Đáp lại rồi dành chỗ cho phản ứng của bé.",
+      "visual": "Hai nhân vật luân phiên; biểu tượng khoảng dừng.",
+      "cta": "Lưu để nhớ ‘đến lượt con’.",
+      "source": "A1"
+    },
+    {
+      "day": 16,
+      "pillar": "play",
+      "age": "24–36 tháng",
+      "title": "Con chọn trò, ba mẹ cùng khám phá",
+      "idea": "Để trẻ dẫn một lượt chơi với đồ dùng phù hợp.",
+      "visual": "Trẻ chọn khối lớn; người lớn ngồi cùng tầm.",
+      "cta": "Hôm nay con chọn chơi gì?",
+      "source": "A3"
+    },
+    {
+      "day": 17,
+      "pillar": "school",
+      "age": "6–36 tháng",
+      "title": "Xem tỷ lệ cô–trẻ: hỏi cụ thể thế nào?",
+      "idea": "Hỏi sĩ số thực tế và người phụ trách từng thời điểm.",
+      "visual": "Bảng thông tin minh họa, không điền số của THÉ.",
+      "cta": "Xem bài ghim để kết nối với THÉ.",
+      "source": null
+    },
+    {
+      "day": 18,
+      "pillar": "language",
+      "age": "12–24 tháng",
+      "title": "Trò chuyện trong việc hằng ngày",
+      "idea": "Gọi tên đồ vật, hành động quen thuộc khi ở cùng con.",
+      "visual": "Ba cảnh sinh hoạt đơn giản, mỗi cảnh một từ khóa.",
+      "cta": "Chọn một việc quen để trò chuyện.",
+      "source": "A2"
+    },
+    {
+      "day": 19,
+      "pillar": "play",
+      "age": "24–36 tháng",
+      "title": "Khen điều gì khi con tự thử?",
+      "idea": "Mô tả cụ thể điều con vừa làm được.",
+      "visual": "Trẻ cất khối; câu khen mô tả hiện trên màn hình.",
+      "cta": "Thử một câu khen thật cụ thể.",
+      "source": "A8"
+    },
+    {
+      "day": 20,
+      "pillar": "emotion",
+      "age": "24–36 tháng",
+      "title": "Khi kế hoạch thay đổi, báo với con ra sao?",
+      "idea": "Giải thích ngắn gọn lúc cả hai đang bình tĩnh.",
+      "visual": "Lịch minh họa đổi hoạt động; người lớn giải thích.",
+      "cta": "Lưu cho những ngày đổi lịch.",
+      "source": "A4"
+    },
+    {
+      "day": 21,
+      "pillar": "language",
+      "age": "24–36 tháng",
+      "title": "Nhắc lại lời con để tiếp nối cuộc trò chuyện",
+      "idea": "Lắng nghe và phản hồi điều con vừa nói.",
+      "visual": "Bong bóng lời nói nối tiếp giữa trẻ và người lớn.",
+      "cta": "Theo dõi Một phút trò chuyện.",
+      "source": "A6"
+    },
+    {
+      "day": 22,
+      "pillar": "play",
+      "age": "24–36 tháng",
+      "title": "Vẽ cùng con, đừng vội sửa bức tranh",
+      "idea": "Quan sát lựa chọn của con trong lượt chơi tự do.",
+      "visual": "Giấy và bút màu; ba mẹ mô tả thay vì sửa hình.",
+      "cta": "Hỏi con muốn kể gì về bức tranh.",
+      "source": "A3"
+    },
+    {
+      "day": 23,
+      "pillar": "school",
+      "age": "6–36 tháng",
+      "title": "Xem học phí: đừng bỏ sót các khoản đi kèm",
+      "idea": "Hỏi học phí, tiền ăn, phí đầu năm và điều kiện ưu đãi.",
+      "visual": "Bốn dòng trong bảng phí minh họa, không gán giá.",
+      "cta": "Xem bài ghim kết nối với THÉ.",
+      "source": null
+    },
+    {
+      "day": 24,
+      "pillar": "emotion",
+      "age": "24–36 tháng",
+      "title": "Cất đồ thành một phần của giờ chơi",
+      "idea": "Thêm yếu tố vui; dùng trình tự ngắn, vừa khả năng.",
+      "visual": "Hai giỏ đồ lớn và bài nhắc cất đồ minh họa.",
+      "cta": "Thử với một nhóm đồ chơi.",
+      "source": "A4"
+    },
+    {
+      "day": 25,
+      "pillar": "language",
+      "age": "0–12 tháng",
+      "title": "Âm thanh nhỏ cũng là một lượt giao tiếp",
+      "idea": "Quan sát nét mặt, cử chỉ và đáp lại.",
+      "visual": "Cận cảnh nhân vật bé; biểu tượng âm thanh nhẹ.",
+      "cta": "Dành một lượt lắng nghe con.",
+      "source": "A1"
+    },
+    {
+      "day": 26,
+      "pillar": "play",
+      "age": "24–36 tháng",
+      "title": "Bắt chước trò chơi của con có ích gì?",
+      "idea": "Cùng làm theo để thể hiện sự chú ý và kết nối.",
+      "visual": "Trẻ gõ hai khối lớn; ba mẹ làm theo.",
+      "cta": "Thử một phút làm theo con.",
+      "source": "A6"
+    },
+    {
+      "day": 27,
+      "pillar": "school",
+      "age": "6–36 tháng",
+      "title": "Sau tham quan, so sánh trường bằng gì?",
+      "idea": "So cách chăm sóc, lịch sinh hoạt, đường đi và chi phí.",
+      "visual": "Bảng so sánh trống cho gia đình tự điền.",
+      "cta": "Xem bài ghim để kết nối với THÉ.",
+      "source": null
+    },
+    {
+      "day": 28,
+      "pillar": "emotion",
+      "age": "24–36 tháng",
+      "title": "Cùng một lời nhắc, cùng một cách làm",
+      "idea": "Chọn nếp đơn giản và phản hồi nhất quán.",
+      "visual": "Hai ngày khác nhau, cùng trình tự quen thuộc.",
+      "cta": "Gia đình muốn xây nếp nào trước?",
+      "source": "A4"
+    },
+    {
+      "day": 29,
+      "pillar": "language",
+      "age": "12–24 tháng",
+      "title": "Theo điều con thích để mở cuộc trò chuyện",
+      "idea": "Từ điều con đang chú ý, thêm một lời đáp.",
+      "visual": "Bé chú ý đồ vật; ba mẹ cùng nhìn và trò chuyện.",
+      "cta": "Lưu và thử với sở thích của con.",
+      "source": "A1"
+    },
+    {
+      "day": 30,
+      "pillar": "play",
+      "age": "24–36 tháng",
+      "title": "Một khoảng chơi không bị xao nhãng",
+      "idea": "Chọn lúc người lớn có thể tập trung tương tác.",
+      "visual": "Điện thoại được cất sang bên; hai nhân vật cùng chơi.",
+      "cta": "Xem bài ghim để kết nối với THÉ.",
+      "source": "A3"
+    }
+  ],
+  "scripts": [
+    {
+      "title": "Đến lượt con trò chuyện",
+      "source": "A1",
+      "rows": [
+        [
+          "0–3s",
+          "Bé ê a, mình nên nói tiếp hay chờ?",
+          "Bong bóng âm thanh của bé."
+        ],
+        [
+          "3–10s",
+          "Nhìn điều bé đang chú ý và đáp lại.",
+          "Người lớn quay về phía bé."
+        ],
+        [
+          "10–27s",
+          "Mỉm cười, thêm lời ngắn, rồi chờ phản ứng.",
+          "Hai lượt đáp qua lại."
+        ],
+        [
+          "27–35s",
+          "Lưu để nhớ dành một lượt cho con.",
+          "Logo THÉ + CTA lưu bài."
+        ]
+      ]
+    },
+    {
+      "title": "Chơi theo sự dẫn dắt của trẻ",
+      "source": "A3",
+      "rows": [
+        [
+          "0–3s",
+          "Giờ chơi này, thử để con dẫn nhé?",
+          "Trẻ chọn bộ khối lớn."
+        ],
+        [
+          "3–10s",
+          "Quan sát món con đang chọn.",
+          "Người lớn ngồi cùng tầm."
+        ],
+        [
+          "10–27s",
+          "Làm theo, mô tả và khen điều cụ thể.",
+          "Hai người cùng xếp khối."
+        ],
+        [
+          "27–35s",
+          "Thử trong lượt chơi tiếp theo của nhà mình.",
+          "Tên series + nút theo dõi."
+        ]
+      ]
+    },
+    {
+      "title": "Gọi tên cảm xúc",
+      "source": "A7",
+      "rows": [
+        [
+          "0–3s",
+          "Con đang buồn, mình nói gì đây?",
+          "Nhân vật trẻ buồn vì trò chơi dừng."
+        ],
+        [
+          "3–10s",
+          "Khi cả hai bình tĩnh, thử gọi tên cảm xúc.",
+          "Người lớn hạ giọng, nhìn trẻ."
+        ],
+        [
+          "10–27s",
+          "‘Con buồn vì đang muốn chơi tiếp, đúng không?’",
+          "Bong bóng câu nói gợi ý."
+        ],
+        [
+          "27–35s",
+          "Đây là gợi ý câu nói, điều chỉnh theo con.",
+          "CTA chia sẻ tình huống."
+        ]
+      ]
+    },
+    {
+      "title": "Một nếp sinh hoạt dễ nhớ",
+      "source": "A4",
+      "rows": [
+        [
+          "0–3s",
+          "Con dễ theo hơn khi biết bước tiếp theo.",
+          "Ba thẻ sinh hoạt hoạt hình."
+        ],
+        [
+          "3–10s",
+          "Chọn một trình tự ngắn, phù hợp.",
+          "Cùng chơi → cất đồ → việc tiếp theo."
+        ],
+        [
+          "10–27s",
+          "Lặp lại nhất quán; báo trước khi đổi lịch.",
+          "Lịch ngày mới giữ ba biểu tượng."
+        ],
+        [
+          "27–35s",
+          "Lưu để thiết kế nếp sinh hoạt nhà mình.",
+          "Logo + nguồn trong caption."
+        ]
+      ]
+    },
+    {
+      "title": "Ba câu hỏi về giai đoạn làm quen",
+      "source": null,
+      "rows": [
+        [
+          "0–3s",
+          "Đi tham quan, ba mẹ nhớ hỏi ba điều này.",
+          "Checklist ba ô trống."
+        ],
+        [
+          "3–10s",
+          "Lịch làm quen của lớp được tổ chức ra sao?",
+          "Ô lịch và dấu hỏi."
+        ],
+        [
+          "10–27s",
+          "Ai phụ trách bé? Gia đình được cập nhật thế nào?",
+          "Cô giáo minh họa và biểu tượng tin nhắn."
+        ],
+        [
+          "27–35s",
+          "Xem bài ghim để kết nối với THÉ.",
+          "Bài ghim / kênh liên hệ chính thức."
+        ]
+      ]
+    },
+    {
+      "title": "Xem sách tranh cùng con",
+      "source": "A2",
+      "rows": [
+        [
+          "0–3s",
+          "Một trang tranh cũng mở được cuộc trò chuyện.",
+          "Bé và người lớn nhìn sách."
+        ],
+        [
+          "3–10s",
+          "Theo hình mà con đang chú ý.",
+          "Bé chỉ một hình lớn."
+        ],
+        [
+          "10–27s",
+          "Chỉ hình, gọi tên và cùng trò chuyện.",
+          "Từ khóa xuất hiện cạnh bức tranh."
+        ],
+        [
+          "27–35s",
+          "Lưu và thử với một trang sách quen.",
+          "Logo + CTA lưu bài."
+        ]
+      ]
+    }
+  ]
+}

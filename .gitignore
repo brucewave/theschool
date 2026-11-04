@@ -1,0 +1,27 @@
+# Keep this repository focused on the recruitment report.
+/*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/requirements.txt
+!/index.html
+!/Bao_cao_tuyen_sinh_2026-11-04/
+
+/Bao_cao_tuyen_sinh_2026-11-04/*
+!/Bao_cao_tuyen_sinh_2026-11-04/report_template.html
+!/Bao_cao_tuyen_sinh_2026-11-04/build_html.py
+!/Bao_cao_tuyen_sinh_2026-11-04/ads_production.html
+!/Bao_cao_tuyen_sinh_2026-11-04/ads_production.css
+!/Bao_cao_tuyen_sinh_2026-11-04/visual_refresh.css
+!/Bao_cao_tuyen_sinh_2026-11-04/ai_content.json
+!/Bao_cao_tuyen_sinh_2026-11-04/nguon_tham_khao.json
+!/Bao_cao_tuyen_sinh_2026-11-04/manifest_bang_chung.json
+!/Bao_cao_tuyen_sinh_2026-11-04/Danh_muc_quang_cao.csv
+!/Bao_cao_tuyen_sinh_2026-11-04/assets/
+!/Bao_cao_tuyen_sinh_2026-11-04/thiet_ke_tham_khao/
+!/Bao_cao_tuyen_sinh_2026-11-04/bang_chung/
+/Bao_cao_tuyen_sinh_2026-11-04/bang_chung/*
+!/Bao_cao_tuyen_sinh_2026-11-04/bang_chung/*.jpg
+!/Bao_cao_tuyen_sinh_2026-11-04/bang_chung/cards/
+/Bao_cao_tuyen_sinh_2026-11-04/bang_chung/cards/*
+!/Bao_cao_tuyen_sinh_2026-11-04/bang_chung/cards/[0-9]*.jpg

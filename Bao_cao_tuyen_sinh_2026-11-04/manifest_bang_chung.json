@@ -1,0 +1,151 @@
+[
+  {
+    "name": "01_THE_website",
+    "url": "https://the.edu.vn/",
+    "capturedAt": "2026-11-04T04:01:12.623766+00:00",
+    "timeBasis": "Thời gian ghi tệp ảnh",
+    "sha256": "d6ae330901f59a81f85bc1ca3f6412a7fcc61f6f362c5d18ee0995814755a06b"
+  },
+  {
+    "name": "02_THE_social",
+    "url": "https://www.facebook.com/theschooldanang",
+    "capturedAt": "2026-11-04T04:01:34.167971+00:00",
+    "timeBasis": "Thời gian ghi tệp ảnh",
+    "sha256": "7b8f13d372a54a52774ee35be434052217820f2dd41d1c9314950323ebeddd76"
+  },
+  {
+    "name": "03_Sakura_social",
+    "url": "https://www.facebook.com/sakuradanang.vn/",
+    "capturedAt": "2026-11-04T04:02:05.230538+00:00",
+    "timeBasis": "Thời gian ghi tệp ảnh",
+    "sha256": "8b18c6f7e448852ec583b94713e1d13501f97f6bef621d7e52644f29a536f275"
+  },
+  {
+    "name": "04_Cocoon_website",
+    "url": "https://cocoon.edu.vn/#datlich",
+    "capturedAt": "2026-11-04T04:02:14.802486+00:00",
+    "timeBasis": "Thời gian ghi tệp ảnh",
+    "sha256": "6b24776b70a0dfad7abcd57fb9a60f0e1a4ab950ea06fd496b6ac424560e5911"
+  },
+  {
+    "name": "05_Cocoon_datlich",
+    "url": "https://cocoon.edu.vn/#datlich",
+    "capturedAt": "2026-11-04T04:19:49.347Z",
+    "sha256": "89ff9286ba8c83bc7f2af6c70524a47d4103fe54b2d49d805b98b2be95801eb1"
+  },
+  {
+    "name": "06_THE_ads",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=VN&view_all_page_id=227613571391235",
+    "capturedAt": "2026-11-04T04:02:24.080243+00:00",
+    "timeBasis": "Thời gian ghi tệp ảnh",
+    "sha256": "bc2975edfd387825b6b4346c118eae63992d8cd3d313d942d371b6549e36746e"
+  },
+  {
+    "name": "07_THE_ad_chitiet",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=VN&is_targeted_country=false&media_type=all&search_type=page&sort_data[direction]=desc&sort_data[mode]=total_impressions&view_all_page_id=227613571391235",
+    "capturedAt": "2026-11-04T04:02:55.274Z",
+    "sha256": "20780138b5add0d83c7e72afe52ffa0e07f6cb66f09394a1e833a1ac7c532a0c"
+  },
+  {
+    "name": "08_Casa_social",
+    "url": "https://www.facebook.com/CASADEIMONTESSORI.DN/",
+    "capturedAt": "2026-11-04T04:02:57.766Z",
+    "sha256": "a063c2cb03a94958a3af0f5f38a2f76702579fc8a19132bacbae23b764b62057"
+  },
+  {
+    "name": "09_Cocoon_social",
+    "url": "https://www.facebook.com/CocoonMontessoriPreschool/",
+    "capturedAt": "2026-11-04T04:02:58.966Z",
+    "sha256": "17246484f20e9cd85b407190e75f59d4686ba65399ab7d42d356883e6948dab5"
+  },
+  {
+    "name": "10_Fuji_website",
+    "url": "https://fujiinfinity.vn/vi/",
+    "capturedAt": "2026-11-04T04:03:26.378Z",
+    "sha256": "ae41fa0e96c2ca1d2d499a432366e8aa714d93d2776eb511946091666a40da75"
+  },
+  {
+    "name": "11_Skyline_website",
+    "url": "https://mamnon.skylineschool.edu.vn/",
+    "capturedAt": "2026-11-04T04:03:42.896Z",
+    "sha256": "168774418a0e5d277c7de00ab452913f86465abc112e24f4f1f6efce3814aa74"
+  },
+  {
+    "name": "12_Fuji_social",
+    "url": "https://www.facebook.com/fujiinfinityvn/",
+    "capturedAt": "2026-11-04T04:03:45.835Z",
+    "sha256": "12db4775e5b68547025e23c36e94a619075fb19372ae9b8970ebcfa4b818d4ad"
+  },
+  {
+    "name": "13_Sakura_ads",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=VN&is_targeted_country=false&media_type=all&search_type=page&sort_data[direction]=desc&sort_data[mode]=total_impressions&view_all_page_id=268520187037207",
+    "capturedAt": "2026-11-04T04:04:23.591Z",
+    "sha256": "0e5f4a3f20a957e4f128b58c47b10035a3578b87cb2526ddfc96aff5ce416b2a"
+  },
+  {
+    "name": "16_Casa_ads",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=VN&is_targeted_country=false&media_type=all&search_type=page&sort_data[direction]=desc&sort_data[mode]=total_impressions&view_all_page_id=100583887016841",
+    "capturedAt": "2026-11-04T04:08:09.661Z",
+    "sha256": "5de8c38a16dfab54884b7d38b84256e54a327762664578943ca3179648765b30"
+  },
+  {
+    "name": "17_Skyline_social",
+    "url": "https://www.facebook.com/skylineschool.dng",
+    "capturedAt": "2026-11-04T04:20:18.862Z",
+    "sha256": "08036bf2405e2c0cd0c4f14e108c28fdb09eb081d5b8dba690feb5c4550d9d25"
+  },
+  {
+    "name": "18_Cocoon_ads",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=VN&is_targeted_country=false&media_type=all&search_type=page&sort_data[mode]=total_impressions&sort_data[direction]=desc&view_all_page_id=106063315489305",
+    "capturedAt": "2026-11-04T04:22:19.906Z",
+    "sha256": "75b0ab82fbc20b4a2af96f575b25cbb0cf325cee057252d3ade2922227b2a4ca"
+  },
+  {
+    "name": "19_Fuji_ads",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=VN&is_targeted_country=false&media_type=all&search_type=page&sort_data[direction]=desc&sort_data[mode]=total_impressions&view_all_page_id=1597753666922174",
+    "capturedAt": "2026-11-04T04:10:36.955Z",
+    "sha256": "3ec74ce8f0d17ea66aab295be90f9b513e09c274d83df687833d71189410fb41"
+  },
+  {
+    "name": "20_THE_bai_trai_nghiem",
+    "url": "https://www.facebook.com/theschooldanang/posts/pfbid0YF1G5isNd591Y4athasE89uCun1aeLMs4EV6NUxmJGxqmeoKFvvFR68tMdWKgZf2l",
+    "capturedAt": "2026-11-04T04:11:05.162Z",
+    "sha256": "cec0b514393e5e471a6e846590fd82e21500f3043798344cdbb0266712343c0d"
+  },
+  {
+    "name": "21_Skyline_ads",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=VN&is_targeted_country=false&media_type=all&search_type=page&sort_data[direction]=desc&sort_data[mode]=total_impressions&view_all_page_id=145436565624516",
+    "capturedAt": "2026-11-04T04:11:28.532Z",
+    "sha256": "ba6fcb2bf64a654967a19c822f494b5d5336af96e337f5c744ec28bba6675e2e"
+  },
+  {
+    "name": "23_Skyline_12thang",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=VN&is_targeted_country=false&media_type=all&search_type=page&sort_data[mode]=total_impressions&sort_data[direction]=desc&view_all_page_id=145436565624516",
+    "capturedAt": "2026-11-04T04:19:43.233Z",
+    "sha256": "4406da9c7c6d9a161c67fc8eef36676674a28775437efc2c027c5d0295c027dc"
+  },
+  {
+    "name": "24_THE_tiktok_truycap",
+    "url": "https://www.tiktok.com/@theschool.dn",
+    "capturedAt": "2026-11-04T04:12:23.052Z",
+    "sha256": "60fa8c9435a3ba1dad0a8f928369ebb601b93cc9e2fd703fd0919c19d832f9b2"
+  },
+  {
+    "name": "25_Fuji_12thang",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=VN&is_targeted_country=false&media_type=all&search_type=page&sort_data[mode]=total_impressions&sort_data[direction]=desc&view_all_page_id=1597753666922174",
+    "capturedAt": "2026-11-04T04:12:58.648Z",
+    "sha256": "01d2af417d54a1aa9f97b9a50430490c25bb5f7b0e7c5686b48e8757fcb16760"
+  },
+  {
+    "name": "26_Sakura_ad_chitiet",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=VN&is_targeted_country=false&media_type=all&search_type=page&sort_data[mode]=total_impressions&sort_data[direction]=desc&view_all_page_id=268520187037207",
+    "capturedAt": "2026-11-04T04:23:38.396Z",
+    "sha256": "8240e2bd1e6edf56b707176ba308817255c96cd9608fd34fcd08e08b4cd2e3e7"
+  },
+  {
+    "name": "27_Casa_ad_chitiet",
+    "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=VN&is_targeted_country=false&media_type=all&search_type=page&sort_data[mode]=total_impressions&sort_data[direction]=desc&view_all_page_id=100583887016841",
+    "capturedAt": "2026-11-04T04:25:21.875Z",
+    "sha256": "ae5cfbf5a287db7e9f00c445b41a84043a385fe63a61bd1b155ba666cae0298b"
+  }
+]
