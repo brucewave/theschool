@@ -10,6 +10,7 @@ Mở **`index.html`**. Các phần chính:
 - 04 · Phễu hay chạy thẳng, cách chia 200k/ngày, số liệu theo giá tin nhắn thực tế (50–100k/tin nhắn) và bảng "thấy gì sửa gì".
 - 05 · Kênh mới 0–3 tuổi: 4 dạng video, lịch tuần, 30 chủ đề, 6 kịch bản.
 - 06 · Kênh cũ (fanpage THÉ): dạng bài, lịch tuần, cài quảng cáo, tin nhắn chào, lịch 30 ngày, mẫu ảnh và shot list.
+- 07 · Sếp cần chốt: 7 quyết định (ngân sách, ưu đãi, lớp còn chỗ, người trực, video, quyền hình ảnh, kênh mới), có dòng "Sếp chốt" để ghi.
 - So sánh 5 trường và 17 card quảng cáo đối thủ. (Mục 07 ảnh bằng chứng & nguồn đã bỏ; ảnh gốc vẫn ở `bang_chung/`.)
 
 Mở bằng Chrome/Edge, hoặc xem trên Vercel.
