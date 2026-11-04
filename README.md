@@ -4,8 +4,13 @@ Báo cáo trực quan thị trường mầm non Đà Nẵng, khảo sát ngày *
 
 ## Xem báo cáo
 
-- **`index.html`**: kế hoạch hành động 30 ngày (kênh mới 0–3 tuổi, fanpage THÉ, quảng cáo 200k/ngày, số liệu dự kiến, lịch). Đây là trang chính.
-- **`nghien-cuu.html`**: bản nghiên cứu đầy đủ (so sánh 5 trường, 17 card quảng cáo, 30 chủ đề video, shot list, nguồn).
+Mở **`index.html`**. Các phần chính:
+
+- Tóm tắt: tháng này làm gì (chạy thẳng tin nhắn, fanpage THÉ, kênh mới 0–3 tuổi).
+- 04 · Phễu hay chạy thẳng, cách chia 200k/ngày, số liệu theo giá tin nhắn thực tế (50–100k/tin nhắn) và bảng "thấy gì sửa gì".
+- 05 · Kênh mới 0–3 tuổi: 4 dạng video, lịch tuần, 30 chủ đề, 6 kịch bản.
+- 06 · Fanpage THÉ: dạng bài, lịch tuần, cài quảng cáo, tin nhắn chào, lịch 30 ngày, mẫu ảnh và shot list.
+- So sánh 5 trường, 17 card quảng cáo đối thủ và nguồn.
 
 Mở bằng Chrome/Edge, hoặc xem trên Vercel.
 
@@ -32,4 +37,4 @@ Mã dựng nằm trong `Bao_cao_tuyen_sinh_2026-11-04/`:
 | `ads_production.html`, `ads_production.css` | Mẫu ảnh và phương án quay |
 | `bang_chung/`, `thiet_ke_tham_khao/`, `assets/` | Ảnh nguồn và logo |
 
-Lệnh dựng chỉ cập nhật `nghien-cuu.html` (bản nghiên cứu). `index.html` (kế hoạch hành động) được sửa trực tiếp.
+Lệnh dựng tạo lại `index.html` ở gốc repo từ các file trên. Sửa nội dung trong `report_template.html` rồi chạy lại lệnh dựng, không sửa trực tiếp `index.html`.
