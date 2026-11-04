@@ -53,9 +53,7 @@ titles={
 '26_Sakura_ad_chitiet':('Sakura · Thông điệp tuyển sinh','ads'),
 '27_Casa_ad_chitiet':('Casa · Quảng cáo vận động','ads'),
 }
-for name,(title,category) in titles.items():
-    embed(name,evidence/(name+'.jpg'))
-    payload['evidence'].append({'name':name,'title':title,'category':category,'url':manifest[name]['url']})
+# Mục 07 (ảnh bằng chứng) đã bỏ khỏi báo cáo: ảnh vẫn nằm trong bang_chung/ nhưng không nhúng vào index.html.
 template=(root/'report_template.html').read_text(encoding='utf-8')
 template=template.replace('__AD_PRODUCTION_CSS__',(root/'ads_production.css').read_text(encoding='utf-8'))
 template=template.replace('__VISUAL_CSS__',(root/'visual_refresh.css').read_text(encoding='utf-8'))
