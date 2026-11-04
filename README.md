@@ -4,21 +4,21 @@ Báo cáo trực quan thị trường mầm non Đà Nẵng, khảo sát ngày *
 
 ## Xem báo cáo
 
-Mở **`index.html`** bằng Chrome hoặc Edge. File đã nhúng logo, biểu đồ và ảnh; dùng được offline, không cần cài đặt hay chạy server.
+- **`index.html`**: kế hoạch hành động 30 ngày (kênh mới 0–3 tuổi, fanpage THÉ, quảng cáo 200k/ngày, số liệu dự kiến, lịch). Đây là trang chính.
+- **`nghien-cuu.html`**: bản nghiên cứu đầy đủ (so sánh 5 trường, 17 card quảng cáo, 30 chủ đề video, shot list, nguồn).
 
-- So sánh THÉ với 5 trường; ảnh social và 17 card quảng cáo đầy đủ.
-- Mô hình media 200–300k/ngày, có thể điều chỉnh trực tiếp.
-- Kế hoạch 30 video AI, bộ lọc chủ đề và 6 kịch bản mẫu.
-- 3 ảnh thiết kế tham khảo, 2 phương án sản xuất video và shot list 10 nhóm cảnh.
+Mở bằng Chrome/Edge, hoặc xem trên Vercel.
 
-Bấm các mục mở rộng để xem bảng, brief và nguồn chi tiết. Số quảng cáo và follower không phản ánh hiệu quả tuyển sinh; các dự báo chuyển đổi là **giả định**, không phải kết quả đã chạy của THÉ. Ảnh tham khảo người dùng cung cấp được phân biệt với bằng chứng Ads Library.
+## Deploy Vercel
+
+Trang tĩnh, không cần build. `vercel.json` đặt framework = Other, không chạy lệnh build/cài đặt. Import repo trên Vercel rồi bấm Deploy; mỗi lần push lên `main` Vercel tự cập nhật.
 
 ## Cập nhật báo cáo
 
 Yêu cầu Python và Pillow:
 
 ```sh
-python -m pip install -r requirements.txt
+python -m pip install -r Bao_cao_tuyen_sinh_2026-11-04/requirements.txt
 python Bao_cao_tuyen_sinh_2026-11-04/build_html.py
 ```
 
@@ -32,4 +32,4 @@ Mã dựng nằm trong `Bao_cao_tuyen_sinh_2026-11-04/`:
 | `ads_production.html`, `ads_production.css` | Mẫu ảnh và phương án quay |
 | `bang_chung/`, `thiet_ke_tham_khao/`, `assets/` | Ảnh nguồn và logo |
 
-Lệnh dựng cập nhật `index.html` ở gốc repo, đồng thời tạo bản HTML và ZIP trong thư mục báo cáo. File HTML ở gốc là bản để đọc và chia sẻ.
+Lệnh dựng chỉ cập nhật `nghien-cuu.html` (bản nghiên cứu). `index.html` (kế hoạch hành động) được sửa trực tiếp.

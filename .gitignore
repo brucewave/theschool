@@ -3,13 +3,15 @@
 !/.gitignore
 !/.gitattributes
 !/README.md
-!/requirements.txt
 !/index.html
+!/nghien-cuu.html
+!/vercel.json
+!/.vercelignore
 !/Bao_cao_tuyen_sinh_2026-11-04/
-
 /Bao_cao_tuyen_sinh_2026-11-04/*
 !/Bao_cao_tuyen_sinh_2026-11-04/report_template.html
 !/Bao_cao_tuyen_sinh_2026-11-04/build_html.py
+!/Bao_cao_tuyen_sinh_2026-11-04/requirements.txt
 !/Bao_cao_tuyen_sinh_2026-11-04/ads_production.html
 !/Bao_cao_tuyen_sinh_2026-11-04/ads_production.css
 !/Bao_cao_tuyen_sinh_2026-11-04/visual_refresh.css
