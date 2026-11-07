@@ -1,4 +1,15 @@
-# THÉ School · Báo cáo tuyển sinh 0–3 tuổi
+# Báo cáo: THÉ School · MT House
+
+Repo chứa hai báo cáo, chuyển qua lại bằng thanh tab ở đầu trang (trên điện thoại nằm ở đáy):
+
+| Tab | File | Nội dung |
+| --- | --- | --- |
+| THÉ School | `index.html` | Báo cáo tuyển sinh 0–3 tuổi |
+| MT House | `mthouse.html` (+ ảnh trong `mthouse-anh/`) | Tính năng Tool báo cáo tool.mthouse.vn: đã làm, chưa làm, đề xuất |
+
+`mthouse.html` là trang tĩnh, sửa thẳng file đó. Thanh tab nằm ngay sau `<body>` của cả hai trang (và trong `report_template.html` để lệnh dựng không làm mất).
+
+## THÉ School · Báo cáo tuyển sinh 0–3 tuổi
 
 Báo cáo trực quan thị trường mầm non Đà Nẵng, khảo sát ngày **04/11/2026**.
 

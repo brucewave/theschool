@@ -137,6 +137,21 @@ __VISUAL_CSS__
 </style>
 </head>
 <body>
+<!-- Thanh chuyển giữa hai báo cáo (THÉ School / MT House) -->
+<style id="rtabs-css">
+.rtabs{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:60;display:flex;gap:4px;padding:4px;border-radius:999px;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 4px 18px rgba(16,24,40,.14);border:1px solid rgba(16,24,40,.08);font:600 13px/1 "Segoe UI",Arial,sans-serif}
+.rtabs a{display:flex;align-items:center;gap:7px;padding:9px 15px;border-radius:999px;color:#475569;text-decoration:none;white-space:nowrap}
+.rtabs a:hover{background:#f1f5f9}
+.rtabs a i{width:8px;height:8px;border-radius:50%;flex:none}
+.rtabs a.the i{background:#28705a}.rtabs a.mth i{background:#e8742a}
+.rtabs a.on{color:#fff}.rtabs a.on i{background:#fff}
+.rtabs a.the.on{background:#163e33}.rtabs a.mth.on{background:#e8742a}
+@media(max-width:760px){.rtabs{top:auto;bottom:14px}}
+.rtabs.pg-the{left:calc(50% + 112px)}@media(max-width:980px){.rtabs.pg-the{left:calc(50% + 85px)}}@media(max-width:760px){.rtabs.pg-the{left:50%}}
+@media print{.rtabs{display:none}}
+</style>
+<nav class="rtabs pg-the" aria-label="Chọn báo cáo"><a href="index.html" class="the on" aria-current="page"><i></i>THÉ School</a><a href="mthouse.html" class="mth"><i></i>MT House</a></nav>
+
 <a class="button" style="position:absolute;left:-9999px;top:0" href="#main" onfocus="this.style.left='10px'" onblur="this.style.left='-9999px'">Đến nội dung</a>
 <aside class="sidebar" aria-label="Điều hướng báo cáo">
  <a class="brand" href="#overview" aria-label="THÉ School · Về tổng quan"><img src="__BRAND_LOGO__" width="1130" height="1057" alt="Logo THÉ School"><span class="brand-caption">ĐÀ NẴNG · RESEARCH 2026</span></a>

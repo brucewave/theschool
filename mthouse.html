@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tính năng Tool MT House</title>
+<style>
+:root{
+  --bg:#f5f6f8; --card:#fff; --ink:#1d2330; --mute:#6b7280; --line:#e6e8ec;
+  --brand:#e8742a; --brand-soft:#fdf0e6;
+  --ok:#16a34a; --ok-bg:#e7f6ec;
+  --part:#d97706; --part-bg:#fff4dd;
+  --try:#4f6bed; --try-bg:#ebefff;
+  --no:#dc2626; --no-bg:#fdeaea;
+  --idea:#8b5cf6; --idea-bg:#f2ecff;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 2px 8px rgba(16,24,40,.04);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#14161b; --card:#1d2027; --ink:#e8eaee; --mute:#9aa1ad; --line:#2d313a;
+    --brand-soft:#3a261a; --ok-bg:#16301f; --part-bg:#3a2b12; --try-bg:#1f2648; --no-bg:#3d1b1b; --idea-bg:#2c2147;
+    --shadow:none;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Segoe UI",Roboto,Arial,sans-serif}
+.page{max-width:1120px;margin:0 auto;padding:70px 16px 64px}
+svg.i{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+h1,h2,h3{margin:0;line-height:1.25}
+.card{background:var(--card);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+.mute{color:var(--mute)}
+
+/* đầu trang */
+.hero{display:grid;grid-template-columns:1fr;gap:16px;align-items:center;border-top:6px solid var(--brand)}
+.hero h1{font-size:26px}
+.hero p{margin:6px 0 0;color:var(--mute)}
+.hero .date{font-size:13px;text-align:right;color:var(--mute)}
+.hero .date b{display:block;font-size:20px;color:var(--ink)}
+.btn{font:inherit;font-size:13px;font-weight:600;border:0;border-radius:10px;padding:8px 14px;background:var(--brand);color:#fff;cursor:pointer;margin-top:8px}
+
+/* đang triển khai */
+.doing{margin-top:16px;border-radius:18px;padding:18px 20px;color:#fff;background:linear-gradient(120deg,#e8742a,#c2410c);box-shadow:0 6px 20px rgba(232,116,42,.25)}
+.doing-h{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.08em}
+.pulse{width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 0 0 rgba(255,255,255,.7);animation:pl 1.8s infinite}
+@keyframes pl{70%{box-shadow:0 0 0 10px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+@media (prefers-reduced-motion:reduce){.pulse{animation:none}}
+.doing-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.doing-c{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.14);border-radius:14px;padding:14px}
+.doing-c .ic{width:42px;height:42px;border-radius:12px;background:#fff;color:#c2410c;display:grid;place-items:center;flex:none}
+.doing-c .ic svg{width:22px;height:22px}
+.doing-c b{display:block;font-size:18px;line-height:1.3}
+.doing-c span{display:block;font-size:13.5px;opacity:.92;margin-top:3px}
+@media (max-width:600px){.doing-grid{grid-template-columns:1fr}.doing-c b{font-size:16px}}
+
+/* quan trọng */
+.imp{margin-top:16px;border:2px solid var(--brand);background:var(--card)}
+.imp-h{display:flex;gap:10px;align-items:center;font-size:19px;font-weight:700;color:var(--brand)}
+.imp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.imp-col{border-radius:14px;padding:14px;background:var(--bg)}
+.imp-col h3{font-size:15px;display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.imp-col ul{margin:0;padding:0;list-style:none}
+.imp-col li{padding:7px 0;border-top:1px dashed var(--line);font-size:14px}
+.imp-col li:first-child{border-top:0}
+.imp-col li small{display:block;color:var(--mute);font-size:12.5px}
+.c-dec h3{color:var(--part)} .c-try h3{color:var(--try)} .c-risk h3{color:var(--no)}
+
+/* số liệu */
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:16px}
+.kpi{background:var(--card);border-radius:16px;padding:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:4px}
+.kpi .ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.kpi b{font-size:26px;line-height:1.1}
+.kpi span{font-size:12.5px;color:var(--mute)}
+
+.charts{display:grid;grid-template-columns:300px 1fr;gap:16px;margin-top:16px}
+.donut-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+.donut{width:190px;height:190px;border-radius:50%;position:relative}
+.donut::after{content:"";position:absolute;inset:34px;border-radius:50%;background:var(--card)}
+.donut .mid{position:absolute;inset:0;display:grid;place-items:center;z-index:1;text-align:center}
+.donut .mid b{font-size:34px;display:block;line-height:1}
+.donut .mid span{font-size:12px;color:var(--mute)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;font-size:13px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.card h2{font-size:17px;display:flex;gap:8px;align-items:center;margin-bottom:12px}
+
+.mbar{display:grid;grid-template-columns:170px 1fr 34px;gap:10px;align-items:center;margin:7px 0;font-size:13.5px;cursor:pointer}
+.mbar:hover .mtrack{outline:2px solid var(--brand-soft)}
+.mname{display:flex;gap:7px;align-items:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mname svg{width:16px;height:16px}
+.mtrack{display:flex;height:16px;border-radius:8px;overflow:hidden;background:var(--line)}
+.mtrack span{display:block;height:100%}
+.mcount{text-align:right;color:var(--mute);font-variant-numeric:tabular-nums}
+
+.dep{display:flex;gap:18px;align-items:flex-end;height:150px;padding:0 6px;margin-top:6px}
+.dep div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:6px}
+.dep i{display:block;width:100%;max-width:70px;border-radius:8px 8px 0 0;background:var(--brand)}
+.dep b{font-size:15px} .dep span{font-size:12px;color:var(--mute)}
+
+/* mới tuần này */
+.new{margin-top:16px}
+.new-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.nw{border-radius:14px;padding:12px;background:var(--bg);display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.nw .ic{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand);flex:none}
+.nw small{display:block;color:var(--mute);font-size:12px}
+
+/* từng mục */
+.sec-title{margin:30px 0 4px;font-size:22px;display:flex;align-items:center;gap:10px}
+.sec-sub{margin:0 0 12px;color:var(--mute)}
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.filters button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.filters button.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.mods{display:grid;gap:16px}
+.mod{display:grid;grid-template-columns:1fr 340px;gap:18px}
+.mod.noimg{grid-template-columns:1fr}
+.mod-h{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.mod-h .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;color:#fff;flex:none}
+.mod-h .ic svg{width:22px;height:22px}
+.mod-h h3{font-size:18px}
+.mod-h .bar{display:flex;height:6px;border-radius:3px;overflow:hidden;width:160px;margin-top:6px;background:var(--line)}
+.mod-h .bar span{height:100%}
+.items{list-style:none;margin:0;padding:0}
+.items li{display:grid;grid-template-columns:24px 1fr auto;gap:8px;align-items:start;padding:7px 0;border-top:1px solid var(--line);font-size:14px}
+.items li:first-child{border-top:0}
+.items li small{display:block;color:var(--mute);font-size:12.5px}
+.items li .new-tag{font-size:11px;font-weight:700;color:var(--brand);background:var(--brand-soft);border-radius:6px;padding:0 6px;margin-left:6px}
+.dot{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;color:#fff}
+.dot svg{width:13px;height:13px;stroke-width:3}
+.tag{font-size:11.5px;font-weight:600;border-radius:999px;padding:2px 8px;white-space:nowrap}
+.s-ok .dot{background:var(--ok)} .s-ok .tag{color:var(--ok);background:var(--ok-bg)}
+.s-part .dot{background:var(--part)} .s-part .tag{color:var(--part);background:var(--part-bg)}
+.s-try .dot{background:var(--try)} .s-try .tag{color:var(--try);background:var(--try-bg)}
+.s-no .dot{background:var(--no)} .s-no .tag{color:var(--no);background:var(--no-bg)}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start}
+.shots figure{margin:0;border-radius:12px;overflow:hidden;background:var(--bg);cursor:zoom-in;border:1px solid var(--line)}
+.shots figure:first-child{grid-column:1/-1}
+.shots img{display:block;width:100%;height:130px;object-fit:cover;object-position:top}
+.shots figure:first-child img{height:190px}
+.shots figcaption{font-size:12px;padding:5px 8px;color:var(--mute)}
+.hidden{display:none!important}
+
+/* bảng việc chưa làm / đề xuất */
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--mute);font-weight:600}
+td small{display:block;color:var(--mute);font-size:12.5px}
+.pr{font-size:12px;font-weight:700;border-radius:8px;padding:2px 8px;white-space:nowrap}
+.pr-1{background:var(--no-bg);color:var(--no)} .pr-2{background:var(--part-bg);color:var(--part)} .pr-3{background:var(--line);color:var(--mute)}
+.src{font-size:12px;white-space:nowrap}
+.src.sep{color:var(--no)} .src.tool{color:var(--idea)}
+.cost{display:inline-flex;gap:2px} .cost i{width:8px;height:14px;border-radius:2px;background:var(--line)} .cost i.f{background:var(--brand)}
+
+/* xem ảnh to */
+.lb{position:fixed;inset:0;background:rgba(10,12,16,.88);display:none;align-items:center;justify-content:center;z-index:50;padding:16px;flex-direction:column;gap:10px}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:84vh;border-radius:10px;background:#fff}
+.lb p{color:#fff;margin:0;font-size:14px}
+.lb button{position:absolute;top:12px;right:14px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:#111;font-size:22px;cursor:pointer}
+
+.foot{margin-top:24px;font-size:12.5px;color:var(--mute);text-align:center}
+
+@media (max-width:980px){
+  .kpis{grid-template-columns:repeat(3,1fr)}
+  .imp-grid{grid-template-columns:1fr}
+  .charts{grid-template-columns:1fr}
+  .new-grid{grid-template-columns:1fr 1fr}
+  .mod{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .page{padding:14px 12px 84px}
+  .hero{grid-template-columns:1fr}
+  .hero .date{text-align:left}
+  .hero h1{font-size:22px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .new-grid{grid-template-columns:1fr}
+  .mbar{grid-template-columns:118px 1fr 28px;font-size:12.5px}
+  .items li{grid-template-columns:24px 1fr}
+  .items li .tag{grid-column:2;justify-self:start}
+  .card{padding:16px}
+  .shots img{height:110px}
+  table thead{display:none}
+  table tr{display:grid;grid-template-columns:1fr auto;gap:4px 8px;padding:10px 0;border-bottom:1px solid var(--line)}
+  table td{border:0;padding:0}
+  table td.c-what{grid-column:1/-1}
+}
+@media print{
+  body{background:#fff}
+  .btn,.filters{display:none}
+  .card,.kpi{box-shadow:none;border:1px solid var(--line)}
+  .mod,.imp,.charts{break-inside:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<!-- Thanh chuyển giữa hai báo cáo (THÉ School / MT House) -->
+<style id="rtabs-css">
+.rtabs{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:60;display:flex;gap:4px;padding:4px;border-radius:999px;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 4px 18px rgba(16,24,40,.14);border:1px solid rgba(16,24,40,.08);font:600 13px/1 "Segoe UI",Arial,sans-serif}
+.rtabs a{display:flex;align-items:center;gap:7px;padding:9px 15px;border-radius:999px;color:#475569;text-decoration:none;white-space:nowrap}
+.rtabs a:hover{background:#f1f5f9}
+.rtabs a i{width:8px;height:8px;border-radius:50%;flex:none}
+.rtabs a.the i{background:#28705a}.rtabs a.mth i{background:#e8742a}
+.rtabs a.on{color:#fff}.rtabs a.on i{background:#fff}
+.rtabs a.the.on{background:#163e33}.rtabs a.mth.on{background:#e8742a}
+@media(max-width:760px){.rtabs{top:auto;bottom:14px}}
+.rtabs.pg-the{left:calc(50% + 112px)}@media(max-width:980px){.rtabs.pg-the{left:calc(50% + 85px)}}@media(max-width:760px){.rtabs.pg-the{left:50%}}
+@media print{.rtabs{display:none}}
+</style>
+<nav class="rtabs" aria-label="Chọn báo cáo"><a href="index.html" class="the"><i></i>THÉ School</a><a href="mthouse.html" class="mth on" aria-current="page"><i></i>MT House</a></nav>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-clip" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-flow" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><path d="M9 6h6M18 9v6"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M8 4h8"/><circle cx="9" cy="14" r="1"/><circle cx="15" cy="14" r="1"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><path d="M16 3.1a4 4 0 0 1 0 7.8M22 21v-1a6 6 0 0 0-4-5.6"/></symbol>
+  <symbol id="i-head" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-half" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4 20h16L14 9V3"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M9 11V5a1.5 1.5 0 0 1 3 0v5M12 10V4a1.5 1.5 0 0 1 3 0v6M15 10V6a1.5 1.5 0 0 1 3 0v8a7 7 0 0 1-7 7h-1a6 6 0 0 1-5-3l-2.5-4a1.5 1.5 0 0 1 2.6-1.5L6 15V8a1.5 1.5 0 0 1 3 0"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+  <symbol id="i-img" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1z"/><path d="m12 15-3-3a22 22 0 0 1 2-4A13 13 0 0 1 22 2c0 2.7-.8 7.5-6 11a22 22 0 0 1-4 2z"/></symbol>
+</svg>
+
+<div class="page">
+
+<!-- ===== ĐẦU TRANG ===== -->
+<header class="card hero">
+  <div>
+    <h1>Tool báo cáo MT House — đã làm gì, còn gì</h1>
+    <p>tool.mthouse.vn · cập nhật từ bảng đánh giá ngày 30/10 và mọi thay đổi tới nay</p>
+    <button class="btn" type="button" onclick="window.print()">In / Lưu PDF</button>
+  </div>
+</header>
+
+<!-- ===== ĐANG TRIỂN KHAI ===== -->
+<section class="doing" id="dang-trien-khai">
+  <div class="doing-h"><span class="pulse"></span> ĐANG TRIỂN KHAI</div>
+  <div class="doing-grid">
+    <div class="doing-c">
+      <div class="ic"><svg class="i"><use href="#i-bot"/></svg></div>
+      <div><b>MCP cho Trợ lý của sếp</b>
+        <span>Nối thẳng dữ liệu tool: báo giá, yêu cầu khách, chấm công, KPI · trả lời nhanh hơn · nhớ cuộc trò chuyện</span></div>
+    </div>
+    <div class="doing-c">
+      <div class="ic"><svg class="i"><use href="#i-file"/></svg></div>
+      <div><b>Train dữ liệu tài liệu CEO</b>
+        <span>Trợ lý học tài liệu, quy định, cách làm việc của sếp → trả lời đúng ý, không tự bịa</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUAN TRỌNG ===== -->
+<section class="card imp" id="quan-trong">
+  <div class="imp-h"><svg class="i"><use href="#i-alert"/></svg> Quan trọng — anh xem trước</div>
+  <div class="imp-grid">
+    <div class="imp-col c-dec">
+      <h3><svg class="i"><use href="#i-hand"/></svg> Đang chờ sếp chốt</h3>
+      <ul>
+        <li><b>33 thẻ Quy trình chờ xoá</b> (công trình 7)<small>Vào chuông "Cần anh xem" → "Duyệt hết"</small></li>
+        <li><b>Các luật bên làm tool tự đặt</b><small>Bậc B1–B6, điểm KPI, % tăng lương, 8 mảng kỹ năng, ngưỡng nhắc làm lại việc</small></li>
+        <li><b>"Làm dồn giờ, nghỉ thứ Sáu"</b><small>Đã làm xong trên máy, chờ đồng ý đưa lên website</small></li>
+      </ul>
+    </div>
+    <div class="imp-col c-try">
+      <h3><svg class="i"><use href="#i-flask"/></svg> Đã làm, chưa thử trên máy thật</h3>
+      <ul>
+        <li><b>Nói bằng micro</b> với Trợ lý của sếp<small>Cần thử trên điện thoại</small></li>
+        <li><b>Thêm ảnh trên Android</b> ở Quy trình<small>Đã sửa lỗi, chưa xác nhận trên máy sếp</small></li>
+        <li><b>Ghi âm cuộc họp → AI tóm tắt</b><small>Chưa chạy AI thật</small></li>
+        <li><b>Xem ngang bảng Kế hoạch</b>, toàn màn hình<small>Mới thử trên khung giả lập</small></li>
+        <li><b>AI nhận xét nhân viên</b>, trợ lý trong báo giá<small>Nút thật chưa bấm thử</small></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SỐ LIỆU ===== -->
+<div class="kpis" id="kpis"></div>
+
+<div class="charts">
+  <div class="card donut-wrap">
+    <h2 style="align-self:flex-start"><svg class="i"><use href="#i-chart"/></svg> Tình trạng chung</h2>
+    <div class="donut" id="donut"><div class="mid"><div><b id="donut-pct"></b><span>đã chạy được</span></div></div></div>
+    <div class="legend" id="legend"></div>
+  </div>
+  <div class="card">
+    <h2><svg class="i"><use href="#i-flow"/></svg> Từng mục của tool <span class="mute" style="font-weight:400;font-size:13px">· bấm để xem chi tiết</span></h2>
+    <div id="mbars"></div>
+  </div>
+</div>
+
+<div class="card new">
+  <h2><svg class="i"><use href="#i-star"/></svg> Mới từ 30/10 tới nay</h2>
+  <div class="new-grid" id="new-grid"></div>
+</div>
+
+<!-- ===== TỪNG MỤC ===== -->
+<h2 class="sec-title" id="chi-tiet"><svg class="i" style="width:24px;height:24px"><use href="#i-clip"/></svg> Chi tiết từng mục</h2>
+<p class="sec-sub">Bấm ảnh để xem to. Ảnh dùng dữ liệu giả để thử.</p>
+<div class="filters" id="filters"></div>
+<div class="mods" id="mods"></div>
+
+<!-- ===== CHƯA LÀM / ĐỀ XUẤT ===== -->
+<h2 class="sec-title" id="de-xuat"><svg class="i" style="width:24px;height:24px"><use href="#i-bulb"/></svg> Chưa làm &amp; đề xuất làm tiếp</h2>
+<p class="sec-sub">Xếp theo mức nên làm trước. Ô "Công sức" càng nhiều vạch càng lâu.</p>
+<div class="card tbl-wrap">
+  <table>
+    <thead><tr><th>Việc</th><th>Ai muốn</th><th>Ưu tiên</th><th>Công sức</th></tr></thead>
+    <tbody id="props"></tbody>
+  </table>
+</div>
+
+<p class="foot">Nguồn: bảng đánh giá 30/10 + nhật ký cập nhật tool.mthouse.vn</p>
+</div>
+
+<div class="lb" id="lb"><button type="button" aria-label="Đóng">×</button><img alt=""><p></p></div>
+
+<script>
+var ST = {
+  ok:   { t: 'Đã chạy',            c: 'var(--ok)',   ic: 'i-check' },
+  part: { t: 'Có một phần',        c: 'var(--part)', ic: 'i-half' },
+  try:  { t: 'Làm xong, chưa thử thật', c: 'var(--try)',  ic: 'i-flask' },
+  no:   { t: 'Chưa làm',           c: 'var(--no)',   ic: 'i-x' }
+};
+var ORDER = ['ok', 'part', 'try', 'no'];
+
+// [trạng thái, tên, ghi chú, mới?]
+var MODS = [
+  { id: 'bao-cao', ic: 'i-clip', color: '#e8742a', name: 'Báo cáo ngày & chấm công',
+    items: [
+      ['ok', 'Gửi báo cáo: giờ, công trình, hạng mục, ảnh'],
+      ['ok', 'Tự chia giờ HC / TC, chặn giờ sai và trùng giờ'],
+      ['ok', 'Chặn bấm Gửi nhiều lần ra báo cáo trùng', '', 1],
+      ['ok', 'Khoá sau 23:00, không báo cáo bù', 'Áp dụng từ 01/11'],
+      ['ok', 'Sửa báo cáo hôm qua, anh Vũ duyệt', 'Nhân viên ghi lý do, xin xoá cũng phải duyệt', 1],
+      ['ok', 'Nhắc khi chọn nhầm công trình', 'Không tự lấy công trình của dòng trước', 1],
+      ['ok', 'Ghi lý do khi làm lại việc cũ', 'Do sếp / khách / tự sai / khác', 1],
+      ['ok', 'Giải thích cách tính giờ trên từng dòng', 'VD: 13:30–13:50 = 0,83 giờ vì có 30 phút nghỉ trưa', 1],
+      ['ok', 'Duyệt / yêu cầu sửa, lịch sử sửa từng báo cáo'],
+      ['ok', 'Ảnh gửi sếp: gộp việc + ảnh cả ngày một tấm'],
+      ['ok', 'Bảng chấm công có màu, xuất Excel']
+    ],
+    shots: [
+      ['mthouse-anh/anh-soat-bao-cao--1-nhan-vien-nhac-chon-nham.jpg', 'Nhắc chọn nhầm công trình'],
+      ['mthouse-anh/anh-dieu-chinh-bao-cao--5-anh-vu-xem-cu-moi-dong-y-may-tinh.png', 'Duyệt điều chỉnh: cũ → mới'],
+      ['mthouse-anh/anh-ly-do-lap-viec--2-dien-thoai-chon-ly-do.png', 'Chọn lý do làm lại'],
+      ['mthouse-anh/anh-duyet-bang-cham-cong--bang-cham-cong-sau.png', 'Bảng chấm công'],
+      ['mthouse-anh/anh-cach-tinh-gio--1-ca-ngay-co-cach-tinh.png', 'Cách tính giờ']
+    ] },
+  { id: 'tro-ly', ic: 'i-bot', color: '#7c3aed', name: 'Trợ lý của sếp',
+    items: [
+      ['ok', 'Hỏi tiến độ, giờ, người làm, chi phí công trình'],
+      ['ok', 'Hỏi ai đã báo cáo, ai làm gì, việc đã làm chưa'],
+      ['ok', 'Hỏi tuần này / tuần sau ai bận, ai rảnh'],
+      ['ok', 'Giao việc bằng lời → sếp Duyệt, có Hoàn tác', 'Ghi vào Kế hoạch tuần và Quy trình'],
+      ['ok', 'Hỏi lương một người, nhiều tháng', 'Số do app tính, không để AI tự cộng', 1],
+      ['ok', 'Gửi ảnh / PDF cho trợ lý đọc', 'Ảnh chụp tin nhắn, bảng giá…', 1],
+      ['ok', 'Trả lời thành bảng, biểu đồ, phóng to được'],
+      ['try', 'Nói bằng micro trên điện thoại'],
+      ['part', 'Trả lời nhanh', 'Đang triển khai MCP cho tiện'],
+      ['no', 'Hỏi báo giá, yêu cầu khách, chấm công, KPI', 'Đang triển khai MCP cho tiện'],
+      ['no', 'Hỏi nội quy, quy định công ty', 'Đang triển khai MCP cho tiện'],
+      ['no', 'Nhớ cuộc trò chuyện sau khi tải lại trang', 'Đang triển khai MCP cho tiện']
+    ],
+    shots: [
+      ['mthouse-anh/anh-tro-ly-cua-sep--dien-thoai-4-de-xuat-cho-duyet.png', 'Đề xuất chờ sếp duyệt'],
+      ['mthouse-anh/anh-tro-ly-cua-sep--dien-thoai-7-ke-hoach-tuan-sau.png', 'Ai rảnh tuần sau'],
+      ['mthouse-anh/anh-gui-anh-tro-ly--4-ai-doc-tin-nhan.png', 'Đọc ảnh tin nhắn']
+    ] },
+  { id: 'quy-trinh', ic: 'i-flow', color: '#0d9488', name: 'Quy trình thiết kế',
+    items: [
+      ['ok', 'Sơ đồ Dự án → Bên nhận → Hạng mục → Việc, tới 8 tầng'],
+      ['ok', '4 kiểu xem: Danh sách · Sơ đồ · Kế hoạch ngày · Thống kê'],
+      ['ok', 'Ảnh, PDF bản vẽ trên thẻ, phóng to đọc số'],
+      ['ok', 'Biết ai sửa gì, khoá thẻ, sửa xong bấm Lưu mới hỏi'],
+      ['ok', 'Xoá thẻ người khác phải chờ duyệt', 'Thẻ tự tạo, chưa làm gì thì xoá thẳng', 1],
+      ['ok', 'Gắn báo cáo ngày vào thẻ, ảnh báo cáo hiện trên thẻ', '', 1],
+      ['ok', 'Gắn báo giá vào thẻ (chỉ quản lý)'],
+      ['ok', 'Link chỉ xem gửi khách, cả sơ đồ hoặc một nhánh, có hạn'],
+      ['ok', 'Chia sẻ bảng Kế hoạch: ảnh / PDF / Excel'],
+      ['ok', 'Thống kê BOQ, vật tư, thiết bị, đèn + 5 bước mỗi món'],
+      ['ok', 'Nhập sẵn từ Miro + PDF: 6 công trình'],
+      ['try', 'Điện thoại thật: toàn màn hình, xem ngang, thêm ảnh Android'],
+      ['part', 'Mẫu việc, tên đội nhập từ Miro', 'Đang tạm gán, chờ sếp sửa']
+    ],
+    shots: [
+      ['mthouse-anh/anh-ke-hoach-theo-ngay--1-may-tinh-bang-ke-hoach.png', 'Bảng kế hoạch theo ngày'],
+      ['mthouse-anh/anh-avatar-khoa-the--1-may-tinh-avatar-tren-the.png', 'Ai sửa thẻ'],
+      ['mthouse-anh/anh-bang-thong-ke--2-tong-quan.png', 'Thống kê'],
+      ['mthouse-anh/anh-gan-bao-cao-quy-trinh--3a-so-do-the-co-anh-bao-cao.png', 'Ảnh báo cáo trên thẻ'],
+      ['mthouse-anh/anh-chia-se-nhanh--6-khach-mo-link-may-tinh.png', 'Khách mở link']
+    ] },
+  { id: 'ke-hoach', ic: 'i-cal', color: '#2563eb', name: 'Kế hoạch tuần',
+    items: [
+      ['ok', 'Nhân viên tự lên việc, có giờ dự kiến + các bước làm', '', 1],
+      ['ok', 'Quản lý xem cả đội, bảng ai bận ai rảnh'],
+      ['ok', 'Kiểm tra kế hoạch: quá tải, mô tả mơ hồ, AI phân tích'],
+      ['ok', 'Trợ lý kế hoạch: lên việc theo báo giá'],
+      ['ok', 'Việc được giao ở Quy trình hiện gợi ý trong tuần'],
+      ['try', 'Đăng ký làm dồn giờ để nghỉ thứ Sáu', 'Làm xong trên máy, chưa lên website']
+    ],
+    shots: [
+      ['mthouse-anh/anh-ke-hoach-moi--1-hop-them-viec-may-tinh.jpg', 'Hộp thêm việc'],
+      ['mthouse-anh/anh-viec-duoc-giao--1-may-tinh-viec-duoc-giao.png', 'Việc được giao'],
+      ['mthouse-anh/anh-ke-hoach-moi--3-trang-ke-hoach-dien-thoai.jpg', 'Trên điện thoại']
+    ] },
+  { id: 'luong', ic: 'i-wallet', color: '#16a34a', name: 'Lương',
+    items: [
+      ['ok', 'Nhân viên nhập lương, quản lý duyệt'],
+      ['ok', 'Phiếu lương, ảnh gửi sếp'],
+      ['ok', 'Công thức theo giờ khớp Excel tháng 8'],
+      ['ok', 'Tháng đủ 198 giờ HC mới thành tăng ca', 'Từ 01/11'],
+      ['ok', 'Thứ Bảy nhân viên thiết kế tính tăng ca']
+    ],
+    shots: [
+      ['mthouse-anh/anh-cach-tinh-gio--3-bang-luong-cau-nhac-tang-ca.png', 'Bảng lương dạng thẻ']
+    ] },
+  { id: 'tong-hop', ic: 'i-chart', color: '#0891b2', name: 'Tổng hợp & chi phí',
+    items: [
+      ['ok', 'Thẻ số, biểu đồ công trình / hạng mục'],
+      ['ok', 'Hiệu suất nhân viên, việc từng ngày'],
+      ['ok', 'Chi phí nhân công theo công trình, từng người, từng tháng'],
+      ['ok', 'Chuông "Cần anh xem" gom mọi việc chờ duyệt', '', 1],
+      ['try', 'AI nhận xét hiệu suất từng nhân viên'],
+      ['part', 'Chi phí nhân công trong file Excel', 'Mới có trên trang']
+    ],
+    shots: [
+      ['mthouse-anh/anh-chi-phi-cong-trinh--8-may-tinh-bieu-do.png', 'Chi phí nhân công'],
+      ['mthouse-anh/anh-soat-bao-cao--2-sep-chuong-can-xem-may-tinh.jpg', 'Chuông Cần anh xem'],
+      ['mthouse-anh/anh-chi-phi-cong-trinh--5-dien-thoai-bieu-do-tron-cong-trinh.jpg', 'Trên điện thoại']
+    ] },
+  { id: 'bao-gia', ic: 'i-file', color: '#db2777', name: 'Báo giá & khách hàng',
+    items: [
+      ['ok', 'Soạn báo giá, kế hoạch, hợp đồng, tạm ứng'],
+      ['ok', 'Dùng tốt trên điện thoại, không kéo ngang'],
+      ['part', 'So sánh báo giá nhà cung cấp + hoá đơn', 'Đọc đúng số; lần sửa cuối chưa chạy AI thật'],
+      ['try', 'Trợ lý trong báo giá: hỏi, đề xuất sửa'],
+      ['ok', 'Yêu cầu khách: phiếu, in phiếu, ghi âm, AI điền'],
+      ['part', 'Nhãn VAT đúng', 'Đang in cố định "chưa có 8% VAT"'],
+      ['no', 'Ô giảm giá trong báo giá'],
+      ['no', 'Ghi chi phí thực tế, đối chiếu báo giá', 'Sếp đã yêu cầu']
+    ],
+    shots: [
+      ['mthouse-anh/anh-so-sanh-bao-gia--1-ket-luan.png', 'So sánh báo giá'],
+      ['mthouse-anh/anh-bao-gia-quy-trinh--1-the-du-an.png', 'Báo giá trong Quy trình'],
+      ['mthouse-anh/anh-so-sanh-bao-gia--6-dien-thoai-ket-luan.png', 'Trên điện thoại']
+    ] },
+  { id: 'nhan-su', ic: 'i-users', color: '#9333ea', name: 'Nhân sự: năng lực, KPI',
+    items: [
+      ['ok', 'Năng lực bậc B1–B6, tự chấm + quản lý chấm'],
+      ['ok', 'KPI quý 100 điểm, có điểm gợi ý'],
+      ['ok', 'Xét nâng bậc, dải lương, gợi ý % tăng'],
+      ['ok', 'Nhân viên nghỉ: chặn đăng nhập + sao lưu dữ liệu', '', 1],
+      ['part', 'Luật bậc, công thức điểm được sếp duyệt', 'Đang do bên làm tool tự đặt']
+    ], shots: [] },
+  { id: 'nghe', ic: 'i-head', color: '#ca8a04', name: 'Nghe tài liệu & ghi âm',
+    items: [
+      ['ok', 'Nghe PDF / Word bằng giọng máy hoặc giọng AI'],
+      ['ok', 'Nghe khi tắt màn hình'],
+      ['try', 'Ghi âm họp → AI tóm tắt, việc cần làm, mốc'],
+      ['no', 'Đọc PDF scan / ảnh chụp'],
+      ['no', 'Báo cáo tổng quát tuần tự động', 'Làm khi sếp yêu cầu']
+    ],
+    shots: [
+      ['mthouse-anh/anh-ghi-am--3-dien-thoai-ket-qua.jpg', 'Kết quả AI nghe'],
+      ['mthouse-anh/anh-ghi-am--8-dang-ghi-am.jpg', 'Đang ghi âm'],
+      ['mthouse-anh/anh-ghi-am--1-dien-thoai-trinh-phat.jpg', 'Trình phát']
+    ] },
+  { id: 'an-toan', ic: 'i-shield', color: '#475569', name: 'An toàn dữ liệu',
+    items: [
+      ['ok', 'Nhân viên không xem được lương người khác, báo giá', 'Máy chủ chặn, không chỉ ẩn nút'],
+      ['ok', 'Khoá AI cất ngoài thư mục web'],
+      ['ok', 'Sao lưu trước mỗi lần cập nhật']
+    ], shots: [] }
+];
+
+// [việc, ghi chú, ai muốn: sep|tool, ưu tiên 1-3, công sức 1-3]
+var PROPS = [
+  ['Ghi chi phí thực tế công trình, so với báo giá', 'Biết công trình lời / lỗ', 'sep', 1, 3],
+  ['Trợ lý của sếp hỏi được báo giá, yêu cầu khách, chấm công, KPI, nội quy; trả lời nhanh; nhớ cuộc trò chuyện', 'Đang triển khai: MCP + train dữ liệu tài liệu CEO', 'sep', 1, 2],
+  ['Đưa "Làm dồn giờ, nghỉ thứ Sáu" lên website', 'Đã làm xong', 'sep', 1, 1],
+  ['Cảnh báo số lượng vật tư theo kích thước phòng + hao hụt', 'Đã có bản xem trước', 'tool', 2, 2],
+  ['Ô giảm giá + nhãn VAT đúng trong báo giá', '', 'tool', 2, 1],
+  ['Nhân viên nhập % việc khi gửi báo cáo, đặt mục tiêu tuần', 'Đã bàn, sếp đồng ý hướng', 'sep', 2, 2],
+  ['Chi phí nhân công trong file Xuất Excel', '', 'tool', 3, 1],
+  ['Đọc PDF scan / ảnh chụp tài liệu', '', 'tool', 3, 2],
+  ['Báo cáo tổng quát tuần tự động', 'Khi sếp yêu cầu', 'sep', 3, 2]
+];
+
+function svg(id, extra) { return '<svg class="i"' + (extra || '') + '><use href="#' + id + '"/></svg>'; }
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+function count(items) {
+  var c = { ok: 0, part: 0, try: 0, no: 0 };
+  items.forEach(function (it) { c[it[0]]++; });
+  return c;
+}
+
+var all = [], fresh = [];
+MODS.forEach(function (m) { m.items.forEach(function (it) { all.push(it); if (it[3]) fresh.push([m, it]); }); });
+var C = count(all), N = all.length;
+
+// thẻ số
+var kp = [
+  ['i-clip', 'var(--brand)', 'var(--brand-soft)', N, 'tính năng'],
+  ['i-check', 'var(--ok)', 'var(--ok-bg)', C.ok, 'đã chạy'],
+  ['i-half', 'var(--part)', 'var(--part-bg)', C.part, 'có một phần'],
+  ['i-flask', 'var(--try)', 'var(--try-bg)', C.try, 'chưa thử thật'],
+  ['i-x', 'var(--no)', 'var(--no-bg)', C.no, 'chưa làm'],
+  ['i-bulb', 'var(--idea)', 'var(--idea-bg)', PROPS.length, 'đề xuất làm tiếp']
+];
+document.getElementById('kpis').innerHTML = kp.map(function (k) {
+  return '<div class="kpi"><div class="ic" style="color:' + k[1] + ';background:' + k[2] + '">' + svg(k[0]) + '</div><b>' + k[3] + '</b><span>' + k[4] + '</span></div>';
+}).join('');
+
+// vành khuyên
+var acc = 0, stops = [];
+ORDER.forEach(function (k) { var a = acc, b = acc + C[k] / N * 360; stops.push(ST[k].c + ' ' + a + 'deg ' + b + 'deg'); acc = b; });
+document.getElementById('donut').style.background = 'conic-gradient(' + stops.join(',') + ')';
+document.getElementById('donut-pct').textContent = Math.round(C.ok / N * 100) + '%';
+document.getElementById('legend').innerHTML = ORDER.map(function (k) {
+  return '<span><i style="background:' + ST[k].c + '"></i>' + ST[k].t + ' · ' + C[k] + '</span>';
+}).join('');
+
+// thanh từng mục
+document.getElementById('mbars').innerHTML = MODS.map(function (m) {
+  var c = count(m.items), n = m.items.length;
+  return '<div class="mbar" data-go="' + m.id + '"><div class="mname" style="color:' + m.color + '">' + svg(m.ic) + '<span style="color:var(--ink)">' + esc(m.name) + '</span></div><div class="mtrack">' +
+    ORDER.map(function (k) { return c[k] ? '<span title="' + ST[k].t + ': ' + c[k] + '" style="width:' + (c[k] / n * 100) + '%;background:' + ST[k].c + '"></span>' : ''; }).join('') +
+    '</div><div class="mcount">' + c.ok + '/' + n + '</div></div>';
+}).join('');
+document.querySelectorAll('[data-go]').forEach(function (el) {
+  el.addEventListener('click', function () { document.getElementById('m-' + el.dataset.go).scrollIntoView({ behavior: 'smooth' }); });
+});
+
+// mới
+document.getElementById('new-grid').innerHTML = fresh.map(function (f) {
+  return '<div class="nw"><div class="ic" style="color:' + f[0].color + '">' + svg(f[0].ic) + '</div><div>' + esc(f[1][1]) + '<small>' + esc(f[0].name) + '</small></div></div>';
+}).join('');
+
+// từng mục
+var filt = 'all';
+function drawMods() {
+  document.getElementById('mods').innerHTML = MODS.map(function (m) {
+    var c = count(m.items), n = m.items.length;
+    var items = m.items.filter(function (it) { return filt === 'all' || it[0] === filt; });
+    if (!items.length) return '';
+    var shots = filt === 'all' && m.shots.length ? '<div class="shots">' + m.shots.map(function (s) {
+      return '<figure data-src="' + esc(s[0]) + '" data-cap="' + esc(s[1]) + '"><img loading="lazy" src="' + esc(s[0]) + '" alt="' + esc(s[1]) + '"><figcaption>' + esc(s[1]) + '</figcaption></figure>';
+    }).join('') + '</div>' : '';
+    return '<article class="card mod' + (shots ? '' : ' noimg') + '" id="m-' + m.id + '"><div>' +
+      '<div class="mod-h"><div class="ic" style="background:' + m.color + '">' + svg(m.ic) + '</div><div><h3>' + esc(m.name) + '</h3>' +
+      '<div class="mute" style="font-size:13px">' + c.ok + '/' + n + ' đã chạy</div><div class="bar">' +
+      ORDER.map(function (k) { return c[k] ? '<span style="width:' + (c[k] / n * 100) + '%;background:' + ST[k].c + '"></span>' : ''; }).join('') +
+      '</div></div></div><ul class="items">' + items.map(function (it) {
+        return '<li class="s-' + it[0] + '"><span class="dot">' + svg(ST[it[0]].ic) + '</span><div>' + esc(it[1]) +
+          (it[3] ? '<span class="new-tag">MỚI</span>' : '') + (it[2] ? '<small>' + esc(it[2]) + '</small>' : '') +
+          '</div><span class="tag">' + ST[it[0]].t + '</span></li>';
+      }).join('') + '</ul></div>' + shots + '</article>';
+  }).join('');
+}
+document.getElementById('filters').innerHTML = [['all', 'Tất cả · ' + N]].concat(ORDER.map(function (k) { return [k, ST[k].t + ' · ' + C[k]]; }))
+  .map(function (f) { return '<button type="button" data-f="' + f[0] + '"' + (f[0] === 'all' ? ' class="on"' : '') + '>' + f[1] + '</button>'; }).join('');
+document.getElementById('filters').addEventListener('click', function (e) {
+  var b = e.target.closest('button'); if (!b) return;
+  filt = b.dataset.f;
+  this.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
+  drawMods();
+});
+drawMods();
+
+// đề xuất
+var PR = { 1: ['Làm trước', 'pr-1'], 2: ['Nên làm', 'pr-2'], 3: ['Để sau', 'pr-3'] };
+document.getElementById('props').innerHTML = PROPS.map(function (p) {
+  return '<tr><td class="c-what"><b>' + esc(p[0]) + '</b>' + (p[1] ? '<small>' + esc(p[1]) + '</small>' : '') + '</td>' +
+    '<td><span class="src ' + p[2] + '">' + (p[2] === 'sep' ? '● Sếp yêu cầu' : '● Bên tool đề xuất') + '</span></td>' +
+    '<td><span class="pr ' + PR[p[3]][1] + '">' + PR[p[3]][0] + '</span></td>' +
+    '<td><span class="cost" title="' + ['Nhanh', 'Vừa', 'Lâu'][p[4] - 1] + '">' + [1, 2, 3].map(function (i) { return '<i' + (i <= p[4] ? ' class="f"' : '') + '></i>'; }).join('') + '</span></td></tr>';
+}).join('');
+
+// xem ảnh to
+var lb = document.getElementById('lb');
+document.addEventListener('click', function (e) {
+  var f = e.target.closest('figure[data-src]');
+  if (f) { lb.querySelector('img').src = f.dataset.src; lb.querySelector('p').textContent = f.dataset.cap; lb.classList.add('on'); return; }
+  if (lb.classList.contains('on') && (e.target === lb || e.target.tagName === 'BUTTON')) lb.classList.remove('on');
+});
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.classList.remove('on'); });
+</script>
+</body>
+</html>
