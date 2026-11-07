@@ -1,13 +1,8 @@
-# Báo cáo: THÉ School · MT House
+# Báo cáo theo thương hiệu
 
-Repo chứa hai báo cáo, mỗi bên nhận link riêng (`/` và `/mthouse`). Người xem không thấy thanh tab; thanh chỉ hiện trên máy đã mở một lần bằng `?admin=<mã>` (mở `?admin=off` để tắt). Mã không ghi trong repo, trang chỉ giữ mã băm.
+Mỗi thương hiệu một trang, gửi link riêng; người xem chỉ thấy trang của mình. Danh sách trang, cách thêm trang mới và quy tắc: **xem `AGENTS.md`**.
 
-| Tab | File | Nội dung |
-| --- | --- | --- |
-| THÉ School | `index.html` | Báo cáo tuyển sinh 0–3 tuổi |
-| MT House | `mthouse.html` (+ ảnh trong `mthouse-anh/`) | Tính năng Tool báo cáo tool.mthouse.vn: đã làm, chưa làm, đề xuất |
-
-`mthouse.html` là trang tĩnh, sửa thẳng file đó. Mã thanh tab nằm ngay sau `<body>` của cả hai trang; tên hiện trên tab lấy từ thẻ `<meta name="tab-label">` của từng trang (và trong `report_template.html` để lệnh dựng không làm mất).
+Thanh chuyển trang (`rtabs.js`, danh sách ở `rtabs.json`) chỉ hiện trên máy đã mở một lần bằng `?admin=<mã>`; `?admin=off` để tắt. Mã không ghi trong repo.
 
 ## THÉ School · Báo cáo tuyển sinh 0–3 tuổi
 

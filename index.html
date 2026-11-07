@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="vi">
 <head>
-<meta charset="utf-8"><meta name="tab-label" content="THÉ School"><meta name="tab-color" content="#163e33"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="tab-label" content="THÉ School"><meta name="tab-color" content="#163e33"><meta name="tab-shift" content="112,85"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Báo cáo trực quan đối thủ mầm non Đà Nẵng và kế hoạch tuyển sinh trẻ 0–3 tuổi cho THÉ School.">
 <title>THÉ School · Nghiên cứu tuyển sinh 0–3 tuổi</title>
 <style>
@@ -161,54 +161,7 @@ body{background:radial-gradient(ellipse at 96% 0,#eaf2d8 0,transparent 32%),var(
 </style>
 </head>
 <body>
-<!-- Thanh chuyển báo cáo: chỉ hiện trên máy đã mở bằng mã admin -->
-<style id="rtabs-css">
-.rtabs{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:60;display:flex;gap:4px;padding:4px;border-radius:999px;background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 4px 18px rgba(16,24,40,.14);border:1px solid rgba(16,24,40,.08);font:600 13px/1 "Segoe UI",Arial,sans-serif}
-.rtabs a{display:flex;align-items:center;gap:7px;padding:9px 15px;border-radius:999px;color:#475569;text-decoration:none;white-space:nowrap}
-.rtabs a:hover{background:#f1f5f9}
-.rtabs a i{width:8px;height:8px;border-radius:50%;flex:none;background:var(--c)}
-.rtabs a.on{color:#fff;background:var(--c)}.rtabs a.on i{background:#fff}
-@media(max-width:760px){.rtabs{top:auto;bottom:14px}}
-@media print{.rtabs{display:none}}
-.rtabs.side{left:calc(50% + 112px)}@media(max-width:980px){.rtabs.side{left:calc(50% + 85px)}}@media(max-width:760px){.rtabs.side{left:50%}}
-</style>
-<script>
-(function(){
-  var OTHER='mthouse', H='d30f1b080e3715cc6c976884f38514ec562e4c20fefb95d3ae72720dafec9126', K='rt_admin';
-  function ls(v){try{if(v===undefined)return localStorage.getItem(K);if(v===null)localStorage.removeItem(K);else localStorage.setItem(K,v);}catch(e){}}
-  function meta(src,n){var m=src.match(new RegExp('<meta name="'+n+'" content="([^"]*)"'));return m?m[1]:'';}
-  function head(url){
-    return fetch(url).then(function(r){
-      if(!r.body||!r.body.getReader)return r.text();
-      var rd=r.body.getReader(),dec=new TextDecoder(),txt='';
-      function step(){return rd.read().then(function(x){if(x.done)return txt;txt+=dec.decode(x.value,{stream:true});
-        if(txt.indexOf('</head>')>=0){rd.cancel();return txt;}return step();});}
-      return step();
-    });
-  }
-  function show(){
-    document.documentElement.classList.add('rt-admin');
-    var me=document.documentElement.outerHTML.slice(0,4000);
-    head(OTHER).then(function(o){
-      var a=[[location.pathname,meta(me,'tab-label'),meta(me,'tab-color'),1],[OTHER,meta(o,'tab-label'),meta(o,'tab-color'),0]];
-      if(!a[1][1])return;
-      a.sort(function(x,y){return x[1]<y[1]?1:-1;});
-      var nav=document.createElement('nav');nav.className='rtabs side';nav.setAttribute('aria-label','Chọn báo cáo');
-      nav.innerHTML=a.map(function(t){return '<a href="'+t[0]+'" style="--c:'+t[2]+'"'+(t[3]?' class="on" aria-current="page"':'')+'><i></i>'+t[1]+'</a>';}).join('');
-      document.body.appendChild(nav);
-    }).catch(function(){});
-  }
-  function hex(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return('0'+x.toString(16)).slice(-2);}).join('');}
-  var u=new URL(location.href),q=u.searchParams.get('admin');
-  if(q!==null){
-    u.searchParams.delete('admin');history.replaceState(null,'',u.pathname+u.search+u.hash);
-    if(q==='off'){ls(null);return;}
-    if(window.crypto&&crypto.subtle)crypto.subtle.digest('SHA-256',new TextEncoder().encode(q)).then(function(b){if(hex(b)===H){ls(H);show();}});
-    return;
-  }
-  if(ls()===H)show();
-})();
-</script>
+<script src="/rtabs.js" defer></script>
 
 
 <a class="button" style="position:absolute;left:-9999px;top:0" href="#main" onfocus="this.style.left='10px'" onblur="this.style.left='-9999px'">Đến nội dung</a>
