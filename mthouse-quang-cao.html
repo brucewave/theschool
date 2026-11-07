@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="tab-label" content="MT House · Quảng cáo"><meta name="tab-color" content="#e8742a">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quảng cáo MT House</title>
+<style>
+:root{
+  --bg:#f5f6f8; --card:#fff; --ink:#1d2330; --mute:#6b7280; --line:#e6e8ec;
+  --brand:#e8742a; --brand-soft:#fdf0e6; --brand-dk:#c2410c;
+  --c1:#f4a261; --c2:#e8742a; --c3:#9a3412;
+  --ok:#16a34a; --ok-bg:#e7f6ec;
+  --part:#d97706; --part-bg:#fff4dd;
+  --try:#4f6bed; --try-bg:#ebefff;
+  --no:#dc2626; --no-bg:#fdeaea;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 2px 8px rgba(16,24,40,.04);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#14161b; --card:#1d2027; --ink:#e8eaee; --mute:#9aa1ad; --line:#2d313a;
+    --brand-soft:#3a261a; --ok-bg:#16301f; --part-bg:#3a2b12; --try-bg:#1f2648; --no-bg:#3d1b1b;
+    --c1:#f6b27a; --c3:#c2571c; --shadow:none;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Segoe UI",Roboto,Arial,sans-serif}
+.page{max-width:1120px;margin:0 auto;padding:24px 16px 64px}
+svg.i{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+h1,h2,h3{margin:0;line-height:1.25}
+.card{background:var(--card);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+.mute{color:var(--mute)}
+.num{font-variant-numeric:tabular-nums}
+
+/* đầu trang */
+.hero{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;border-top:6px solid var(--brand)}
+.hero h1{font-size:26px}
+.hero p{margin:6px 0 0;color:var(--mute)}
+.chan{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.chan span{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;background:var(--brand-soft);color:var(--brand);border-radius:999px;padding:4px 12px}
+.chan svg{width:16px;height:16px}
+.hero .date{font-size:13px;text-align:right;color:var(--mute)}
+.hero .date b{display:block;font-size:20px;color:var(--ink)}
+
+/* đang triển khai */
+.doing{margin-top:16px;border-radius:18px;padding:18px 20px;color:#fff;background:linear-gradient(120deg,#e8742a,#c2410c);box-shadow:0 6px 20px rgba(232,116,42,.25)}
+.doing-h{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.08em}
+.pulse{width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 0 0 rgba(255,255,255,.7);animation:pl 1.8s infinite}
+@keyframes pl{70%{box-shadow:0 0 0 10px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+@media (prefers-reduced-motion:reduce){.pulse{animation:none}}
+.doing-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.doing-c{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.14);border-radius:14px;padding:14px}
+.doing-c .ic{width:42px;height:42px;border-radius:12px;background:#fff;color:#c2410c;display:grid;place-items:center;flex:none}
+.doing-c .ic svg{width:22px;height:22px}
+.doing-c b{display:block;font-size:18px;line-height:1.3}
+.doing-c span{display:block;font-size:13.5px;opacity:.92;margin-top:3px}
+
+/* quan trọng */
+.imp{margin-top:16px;border:2px solid var(--brand);background:var(--card)}
+.imp-h{display:flex;gap:10px;align-items:center;font-size:19px;font-weight:700;color:var(--brand)}
+.imp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.imp-col{border-radius:14px;padding:14px;background:var(--bg)}
+.imp-col h3{font-size:15px;display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.imp-col ul{margin:0;padding:0;list-style:none}
+.imp-col li{padding:7px 0;border-top:1px dashed var(--line);font-size:14px}
+.imp-col li:first-child{border-top:0}
+.imp-col li small{display:block;color:var(--mute);font-size:12.5px}
+.c-dec h3{color:var(--part)} .c-try h3{color:var(--ok)} .c-risk h3{color:var(--no)}
+
+/* số liệu */
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:16px}
+.kpi{background:var(--card);border-radius:16px;padding:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:4px}
+.kpi .ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand)}
+.kpi b{font-size:24px;line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi span{font-size:12.5px;color:var(--mute)}
+.kpi.est b{color:var(--try)}
+
+.charts{display:grid;grid-template-columns:300px 1fr;gap:16px;margin-top:16px}
+.card h2{font-size:17px;display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.donut-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+.donut{width:190px;height:190px;border-radius:50%;position:relative;background:conic-gradient(var(--c1) 0 30.8%,var(--c2) 30.8% 76.9%,var(--c3) 76.9% 100%)}
+.donut::after{content:"";position:absolute;inset:34px;border-radius:50%;background:var(--card)}
+.donut .mid{position:absolute;inset:0;display:grid;place-items:center;z-index:1;text-align:center}
+.donut .mid b{font-size:28px;display:block;line-height:1}
+.donut .mid span{font-size:12px;color:var(--mute)}
+.legend{display:grid;grid-template-columns:auto 1fr auto;gap:6px 10px;font-size:13px;width:100%}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;vertical-align:-1px}
+
+.gantt-wrap{overflow-x:auto}
+.gantt{display:grid;grid-template-columns:140px repeat(4,minmax(80px,1fr));gap:8px 4px;min-width:520px;font-size:13px}
+.gantt .wk{font-size:12px;color:var(--mute);font-weight:600;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.gantt .nm{grid-column:1;display:flex;align-items:center;gap:7px;font-weight:600}
+.gantt .nm svg{width:16px;height:16px;color:var(--brand)}
+.gantt .b{border-radius:8px;padding:7px 10px;font-weight:700;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums}
+.gantt .b.lt{color:#4a1d06}
+.dep{display:flex;gap:4px;align-items:flex-end;height:110px;margin-top:14px;padding-top:8px;border-top:1px solid var(--line)}
+.dep .lab{width:140px;flex:none;align-self:center;font-size:13px;color:var(--mute);font-weight:600}
+.dep div.c{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:5px}
+.dep i{display:block;width:100%;max-width:64px;border-radius:8px 8px 0 0;background:var(--brand)}
+.dep b{font-size:13px;font-variant-numeric:tabular-nums}
+.note{font-size:12.5px;color:var(--mute);margin-top:10px;display:flex;gap:6px;align-items:flex-start}
+.note svg{width:16px;height:16px}
+
+/* mục */
+.sec-title{margin:30px 0 4px;font-size:22px;display:flex;align-items:center;gap:10px}
+.sec-title svg{width:24px;height:24px;color:var(--brand)}
+.sec-sub{margin:0 0 12px;color:var(--mute)}
+
+/* phễu */
+.funnel{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.step{position:relative;border-radius:16px;padding:16px;color:#fff;display:flex;flex-direction:column;gap:8px}
+.step:nth-child(1){background:var(--c1);color:#4a1d06} .step:nth-child(2){background:var(--c2)} .step:nth-child(3){background:var(--c3)}
+.step .n{font-size:12px;font-weight:800;letter-spacing:.06em;opacity:.85}
+.step b{font-size:17px;display:flex;gap:8px;align-items:center}
+.step span{font-size:13.5px;opacity:.95}
+
+/* video */
+.vids{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.vid{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.vid figure,.shot figure{margin:0;cursor:zoom-in;background:var(--bg)}
+.vid figure img{display:block;width:100%;height:170px;object-fit:cover}
+.vid .ph{height:170px;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand)}
+.vid .ph svg{width:46px;height:46px;stroke-width:1.6}
+.vid .bd{padding:14px;display:flex;flex-direction:column;gap:6px}
+.vid .bd b{font-size:15.5px}
+.vid .bd span{font-size:13px;color:var(--mute)}
+.tag{font-size:11.5px;font-weight:700;border-radius:999px;padding:2px 9px;white-space:nowrap;align-self:flex-start}
+.t-main{background:var(--brand);color:#fff} .t-ok{background:var(--ok-bg);color:var(--ok)} .t-todo{background:var(--part-bg);color:var(--part)} .t-ctl{background:var(--try-bg);color:var(--try)}
+
+.story{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.shot{border-radius:14px;background:var(--card);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.shot .tc{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:var(--brand);padding:10px 12px 0}
+.shot .tc svg{width:15px;height:15px}
+.shot .fr{height:150px;margin:8px 12px 0;border-radius:10px;overflow:hidden;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center}
+.shot .fr img{width:100%;height:150px;object-fit:cover;display:block}
+.shot .fr svg{width:40px;height:40px;stroke-width:1.6}
+.shot p{margin:0;padding:10px 12px 12px;font-size:13.5px}
+.cuts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.cuts span{font-size:12.5px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+.cuts span:first-child{border-color:var(--brand);color:var(--brand);font-weight:700}
+
+/* thư viện ảnh */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.gal figure{margin:0;border-radius:14px;overflow:hidden;background:var(--card);box-shadow:var(--shadow);cursor:zoom-in}
+.gal figure:first-child{grid-column:span 2;grid-row:span 2}
+.gal img{display:block;width:100%;height:150px;object-fit:cover}
+.gal figure:first-child img{height:calc(300px + 39px)}
+.gal figcaption{font-size:12.5px;padding:7px 10px;display:flex;justify-content:space-between;gap:6px}
+.gal figcaption small{color:var(--mute)}
+
+/* đối thủ */
+.comp{display:grid;grid-template-columns:1fr 1.4fr;gap:16px}
+.hbar{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:center;font-size:13.5px}
+.track{height:22px;border-radius:6px;background:var(--line);position:relative}
+.fill{position:absolute;inset:0 auto 0 0;border-radius:6px;background:var(--brand);color:#fff;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:flex-end;padding-right:7px;min-width:26px}
+.axis{grid-column:2;display:flex;justify-content:space-between;font-size:11.5px;color:var(--mute)}
+.ctab td:first-child{font-weight:700;white-space:nowrap}
+.learn{display:flex;gap:8px;align-items:flex-start;color:var(--ok)}
+.learn svg{width:17px;height:17px;margin-top:2px}
+
+/* tệp khách */
+.aud{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.aud .hd{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.aud .hd .ic{width:42px;height:42px;border-radius:12px;background:var(--brand);color:#fff;display:grid;place-items:center}
+.aud .hd .ic svg{width:22px;height:22px}
+.aud .hd h3{font-size:17px}
+.rowi{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--line);font-size:14px}
+.rowi:first-of-type{border-top:0}
+.rowi svg{width:18px;height:18px;color:var(--mute);margin-top:1px}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.pills span{font-size:12.5px;background:var(--brand-soft);color:var(--brand);border-radius:999px;padding:4px 10px;font-weight:600}
+
+/* lịch */
+.weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.week{padding:0;overflow:hidden}
+.week .top{background:var(--brand);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline}
+.week .top b{font-size:16px} .week .top span{font-size:12.5px;opacity:.9}
+.week ul{list-style:none;margin:0;padding:4px 0}
+.week li{display:grid;grid-template-columns:30px 1fr;gap:6px;padding:7px 14px;font-size:13.5px;align-items:start}
+.week li .d{font-size:11px;font-weight:800;color:var(--brand);background:var(--brand-soft);border-radius:6px;text-align:center;padding:1px 0}
+.week li.ad{background:var(--part-bg);margin-top:4px}
+.week li.ad .d{background:var(--part);color:#fff}
+
+/* bảng */
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--mute);font-weight:600}
+tr:last-child td{border-bottom:0}
+tr.star td{background:var(--ok-bg)}
+.lv{display:inline-flex;align-items:center;gap:6px;font-weight:600}
+.lv svg{width:17px;height:17px}
+.lv.up{color:var(--ok)} .lv.cut{color:var(--no)}
+
+/* xem ảnh to */
+.lb{position:fixed;inset:0;background:rgba(10,12,16,.88);display:none;align-items:center;justify-content:center;z-index:50;padding:16px;flex-direction:column;gap:10px}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:84vh;border-radius:10px;background:#fff}
+.lb p{color:#fff;margin:0;font-size:14px}
+.lb button{position:absolute;top:12px;right:14px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:#111;font-size:22px;cursor:pointer}
+
+html.rt-admin .page{padding-top:70px}
+.foot{margin-top:24px;font-size:12.5px;color:var(--mute);text-align:center}
+
+@media (max-width:980px){
+  .kpis{grid-template-columns:repeat(3,1fr)}
+  .imp-grid{grid-template-columns:1fr}
+  .charts,.comp,.aud{grid-template-columns:1fr}
+  .vids{grid-template-columns:1fr 1fr}
+  .story,.weeks{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:600px){
+  .page{padding:14px 12px 48px}
+  html.rt-admin .page{padding-top:14px;padding-bottom:84px}
+  .hero{grid-template-columns:1fr}
+  .hero .date{text-align:left}
+  .hero h1{font-size:22px}
+  .doing-grid,.funnel,.vids,.weeks{grid-template-columns:1fr}
+  .doing-c b{font-size:16px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .gal{grid-template-columns:1fr 1fr}
+  .gal figure:first-child img{height:200px}
+  .card{padding:16px}
+  .hbar{grid-template-columns:86px 1fr;font-size:12.5px}
+}
+</style>
+</head>
+<body>
+<script src="/rtabs.js" defer></script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-video" viewBox="0 0 24 24"><path d="m22 8-6 4 6 4V8z"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-mega" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.7A8.4 8.4 0 1 1 21 11.5z"/></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M9 11V5a1.5 1.5 0 0 1 3 0v5M12 10V4a1.5 1.5 0 0 1 3 0v6M15 10V6a1.5 1.5 0 0 1 3 0v8a7 7 0 0 1-7 7h-1a6 6 0 0 1-5-3l-2.5-4a1.5 1.5 0 0 1 2.6-1.5L6 15V8a1.5 1.5 0 0 1 3 0"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><path d="M16 3.1a4 4 0 0 1 0 7.8M22 21v-1a6 6 0 0 0-4-5.6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="i-tent" viewBox="0 0 24 24"><path d="M3.5 21 14 3M20.5 21 10 3M15.5 21 12 15l-3.5 6M2 21h20"/></symbol>
+  <symbol id="i-filter" viewBox="0 0 24 24"><path d="M22 3H2l8 9.5V19l4 2v-8.5z"/></symbol>
+  <symbol id="i-clap" viewBox="0 0 24 24"><path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z"/><path d="m6.2 5.3 3.1 3.9M12.4 3.4l3.1 4M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-door" viewBox="0 0 24 24"><path d="M13 4h3a2 2 0 0 1 2 2v14M2 20h3M13 20h9M10 12v.01"/><path d="M13 4.6v16a.6.6 0 0 1-.7.6L5 20V5.6a2 2 0 0 1 1.5-1.9l4-1A2 2 0 0 1 13 4.6z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></symbol>
+  <symbol id="i-cols" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18"/></symbol>
+  <symbol id="i-cube" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></symbol>
+  <symbol id="i-bino" viewBox="0 0 24 24"><path d="M10 10h4M19 7V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3M20 21a2 2 0 0 0 2-2v-3.9a2 2 0 0 0-.4-1.2L19 10.6V7H15v3.6l-2.6 3.3a2 2 0 0 0-.4 1.2V19a2 2 0 0 0 2 2zM22 16h-10M2 16h10M4 21a2 2 0 0 1-2-2v-3.9a2 2 0 0 1 .4-1.2L5 10.6V7h4v3.6l2.6 3.3a2 2 0 0 1 .4 1.2V19a2 2 0 0 1-2 2zM9 7V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3"/></symbol>
+  <symbol id="i-img" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+  <symbol id="i-timer" viewBox="0 0 24 24"><path d="M10 2h4M12 14l3-3"/><circle cx="12" cy="14" r="8"/></symbol>
+  <symbol id="i-cut" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+  <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4M2 6h1.9c1.5 0 2.9.9 3.6 2.2M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14 4 4-4 4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+</svg>
+
+<div class="page">
+
+<!-- ===== ĐẦU TRANG ===== -->
+<header class="card hero">
+  <div>
+    <h1>Quảng cáo MT House · kế hoạch 4 tuần</h1>
+    <p>Chạy thử để gom tệp khách và đo giá một khách để lại thông tin</p>
+    <div class="chan"><span><svg class="i"><use href="#i-fb"/></svg>Facebook</span><span><svg class="i"><use href="#i-ig"/></svg>Instagram</span></div>
+  </div>
+  <div class="date"><b>09/11 – 06/12</b>28 ngày</div>
+</header>
+
+<!-- ===== ĐANG TRIỂN KHAI ===== -->
+<section class="doing">
+  <div class="doing-h"><span class="pulse"></span> ĐANG TRIỂN KHAI</div>
+  <div class="doing-grid">
+    <div class="doing-c">
+      <div class="ic"><svg class="i"><use href="#i-clap"/></svg></div>
+      <div><b>Video quay thật một công trình</b>
+        <span>KTS dẫn tour 30 giây · cắt nhiều bản từ một buổi quay · chờ chốt công trình</span></div>
+    </div>
+    <div class="doing-c">
+      <div class="ic"><svg class="i"><use href="#i-mega"/></svg></div>
+      <div><b>Dựng 3 chiến dịch quảng cáo</b>
+        <span>Video gom tệp · form tư vấn · nhắn tin cho người đã xem</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUAN TRỌNG ===== -->
+<section class="card imp">
+  <div class="imp-h"><svg class="i"><use href="#i-alert"/></svg> Quan trọng — anh xem trước</div>
+  <div class="imp-grid">
+    <div class="imp-col c-dec">
+      <h3><svg class="i"><use href="#i-hand"/></svg> Đang chờ sếp chốt</h3>
+      <ul>
+        <li><b>Công trình để quay</b><small>Gợi ý: Swanbay Villa (đẹp nhất) hoặc DTC Group (ngay TP.HCM, dễ quay)</small></li>
+        <li><b>Người dẫn trong video</b><small>Gợi ý: KTS của MT House, khách tin hơn diễn viên</small></li>
+        <li><b>Ngân sách thử 1.820.000đ</b><small>Cho 28 ngày, 3 chiến dịch</small></li>
+      </ul>
+    </div>
+    <div class="imp-col c-try">
+      <h3><svg class="i"><use href="#i-bulb"/></svg> Đề xuất</h3>
+      <ul>
+        <li><b>Quay thật, không dùng AI làm video chính</b><small>Khách bỏ hàng trăm triệu cần thấy nhà thật</small></li>
+        <li><b>Vẫn chạy video 3D để so</b><small>Sau 1 tuần biết video dựng có kéo được khách không</small></li>
+        <li><b>Kể chuyện công trình</b><small>Tên dự án · m² · phong cách · vấn đề gia chủ</small></li>
+      </ul>
+    </div>
+    <div class="imp-col c-risk">
+      <h3><svg class="i"><use href="#i-alert"/></svg> Cần để ý</h3>
+      <ul>
+        <li><b>Form không đúng nhu cầu</b><small>Thêm câu hỏi ngân sách bắt buộc nếu trên 50% form sai nhu cầu</small></li>
+        <li><b>Trả lời chậm</b><small>Khách để lại form cần được gọi lại trong ngày</small></li>
+        <li><b>Số liệu bên dưới là ước tính</b><small>Thay bằng số thật sau 3–4 ngày chạy</small></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SỐ LIỆU ===== -->
+<div class="kpis">
+  <div class="kpi"><div class="ic"><svg class="i"><use href="#i-wallet"/></svg></div><b>1,82 tr</b><span>Ngân sách 4 tuần</span></div>
+  <div class="kpi"><div class="ic"><svg class="i"><use href="#i-cal"/></svg></div><b>28</b><span>Ngày chạy thử</span></div>
+  <div class="kpi"><div class="ic"><svg class="i"><use href="#i-mega"/></svg></div><b>3</b><span>Chiến dịch</span></div>
+  <div class="kpi"><div class="ic"><svg class="i"><use href="#i-video"/></svg></div><b>3</b><span>Video thử song song</span></div>
+  <div class="kpi est"><div class="ic"><svg class="i"><use href="#i-eye"/></svg></div><b>1.400–3.700</b><span>Lượt xem hết video (ước tính)</span></div>
+  <div class="kpi est"><div class="ic"><svg class="i"><use href="#i-file"/></svg></div><b>4–10</b><span>Form tư vấn (ước tính)</span></div>
+</div>
+
+<div class="charts">
+  <div class="card donut-wrap">
+    <h2 style="align-self:flex-start"><svg class="i"><use href="#i-wallet"/></svg>Chia ngân sách</h2>
+    <div class="donut"><div class="mid"><div><b>1,82 tr</b><span>4 tuần</span></div></div></div>
+    <div class="legend num">
+      <i style="background:var(--c1)"></i><span>Video gom tệp</span><b>560k</b>
+      <i style="background:var(--c2)"></i><span>Form tư vấn</span><b>840k</b>
+      <i style="background:var(--c3)"></i><span>Nhắn tin bám đuổi</span><b>420k</b>
+    </div>
+  </div>
+  <div class="card">
+    <h2><svg class="i"><use href="#i-cal"/></svg>Lịch chạy và tiền mỗi ngày</h2>
+    <div class="gantt-wrap">
+      <div class="gantt">
+        <div></div><div class="wk">Tuần 1 · 09–15/11</div><div class="wk">Tuần 2 · 16–22/11</div><div class="wk">Tuần 3 · 23–29/11</div><div class="wk">Tuần 4 · 30/11–06/12</div>
+        <div class="nm"><svg class="i"><use href="#i-eye"/></svg>Video gom tệp</div><div class="b lt" style="grid-column:2/4;background:var(--c1)">40k/ngày · 3 video</div>
+        <div class="nm"><svg class="i"><use href="#i-file"/></svg>Form tư vấn</div><div class="b" style="grid-column:2/6;background:var(--c2)">30k/ngày · cả 4 tuần</div>
+        <div class="nm"><svg class="i"><use href="#i-repeat"/></svg>Bám đuổi</div><div class="b" style="grid-column:4/6;background:var(--c3)">30k/ngày · người đã xem</div>
+      </div>
+      <div class="dep" style="min-width:520px">
+        <span class="lab">Chi mỗi tuần</span>
+        <div class="c"><b>490k</b><i style="height:70px"></i></div>
+        <div class="c"><b>490k</b><i style="height:70px"></i></div>
+        <div class="c"><b>420k</b><i style="height:60px"></i></div>
+        <div class="c"><b>420k</b><i style="height:60px"></i></div>
+      </div>
+    </div>
+    <div class="note"><svg class="i"><use href="#i-shuffle"/></svg>Từ tuần 3 không thêm tiền: mẫu thua tắt, tiền chuyển sang mẫu có giá tốt nhất.</div>
+  </div>
+</div>
+
+<!-- ===== PHỄU ===== -->
+<h2 class="sec-title"><svg class="i"><use href="#i-filter"/></svg>Phễu khách</h2>
+<p class="sec-sub">Người lạ xem video → thành người quen → để lại thông tin</p>
+<div class="funnel">
+  <div class="step"><span class="n">BƯỚC 1 · TUẦN 1–2</span><b><svg class="i"><use href="#i-video"/></svg>Xem video công trình</b><span>Video quay thật, 3D, ảnh homestay</span></div>
+  <div class="step"><span class="n">BƯỚC 2 · GOM LIÊN TỤC</span><b><svg class="i"><use href="#i-users"/></svg>Thành tệp khách quen</b><span>Xem 50% video · tương tác trang · vào web</span></div>
+  <div class="step"><span class="n">BƯỚC 3 · TUẦN 3–4</span><b><svg class="i"><use href="#i-send"/></svg>Để lại thông tin</b><span>Form báo giá bóc tách · nhắn tin cho KTS</span></div>
+</div>
+
+<!-- ===== VIDEO ===== -->
+<h2 class="sec-title"><svg class="i"><use href="#i-clap"/></svg>3 video chạy thử</h2>
+<p class="sec-sub">Chạy cùng lúc, sau 1 tuần giữ video có giá tốt nhất</p>
+<div class="vids">
+  <div class="card vid">
+    <figure data-src="mthouse-quang-cao-anh/swanbay-phong-khach.jpg" data-cap="Swanbay Villa · phòng khách"><img src="mthouse-quang-cao-anh/swanbay-phong-khach.jpg" alt="Phòng khách Swanbay Villa"></figure>
+    <div class="bd"><span class="tag t-main">Video chính · cần quay</span><b>① KTS dẫn tour công trình</b><span>30 giây, quay thật, kịch bản bên dưới</span></div>
+  </div>
+  <div class="card vid">
+    <div class="ph"><svg class="i"><use href="#i-cols"/></svg></div>
+    <div class="bd"><span class="tag t-ok">Có chất liệu</span><b>② Bản vẽ 3D và nhà thật</b><span>Chia đôi màn hình: "Giống bản vẽ đến đâu?"</span></div>
+  </div>
+  <div class="card vid">
+    <div class="ph"><svg class="i"><use href="#i-cube"/></svg></div>
+    <div class="bd"><span class="tag t-ctl">Đối chứng · có sẵn</span><b>③ Video phối cảnh 3D</b><span>Cắt dọc 30 giây từ video trên website</span></div>
+  </div>
+</div>
+
+<h3 style="margin:22px 0 0;font-size:17px;display:flex;gap:8px;align-items:center"><svg class="i" style="color:var(--brand)"><use href="#i-clap"/></svg>Gợi ý kịch bản video ① <span class="mute" style="font-weight:400;font-size:14px">· ví dụ Swanbay Villa, đổi công trình vẫn giữ 4 cảnh</span></h3>
+<div class="story">
+  <div class="shot"><span class="tc"><svg class="i"><use href="#i-door"/></svg>0–3s · MỞ ĐẦU</span><div class="fr"><svg class="i"><use href="#i-door"/></svg></div><p>Đi qua cổng vòm vào sảnh giếng trời. Chữ: <b>"Căn 500 m² này từng chỉ là bản vẽ"</b></p></div>
+  <div class="shot"><span class="tc"><svg class="i"><use href="#i-chat"/></svg>3–12s · KTS</span><div class="fr"><svg class="i"><use href="#i-chat"/></svg></div><p>KTS nói 1 câu: gia chủ muốn gì, khó ở đâu</p></div>
+  <div class="shot"><span class="tc"><svg class="i"><use href="#i-spark"/></svg>12–25s · 3 ĐIỂM NHẤN</span><figure class="fr" data-src="mthouse-quang-cao-anh/swanbay-san-trong.jpg" data-cap="Swanbay Villa · sân trong gạch bông"><img src="mthouse-quang-cao-anh/swanbay-san-trong.jpg" alt="Sân trong gạch bông"></figure><p>Phòng khách · sân gạch bông · quầy bar thông tầng. Chèn nhanh khung 3D cạnh cảnh thật</p></div>
+  <div class="shot"><span class="tc"><svg class="i"><use href="#i-send"/></svg>25–30s · KÊU GỌI</span><div class="fr"><svg class="i"><use href="#i-send"/></svg></div><p>KTS nhìn camera: <b>"Gửi mặt bằng, nhận phương án sơ bộ"</b></p></div>
+</div>
+<div class="cuts"><span>Cắt từ 1 buổi quay</span><span>9:16 · 30s</span><span>9:16 · 15s</span><span>4:5 · 45s</span><span>3D và thực tế</span></div>
+
+<!-- ===== ẢNH CÓ SẴN ===== -->
+<h2 class="sec-title"><svg class="i"><use href="#i-img"/></svg>Ảnh công trình dùng được cho quảng cáo</h2>
+<p class="sec-sub">Bấm ảnh để xem to</p>
+<div class="gal">
+  <figure data-src="mthouse-quang-cao-anh/swanbay-quay-bar.jpg" data-cap="Swanbay Villa · Đồng Nai · 500 m²"><img src="mthouse-quang-cao-anh/swanbay-quay-bar.jpg" alt="Quầy bar thông tầng Swanbay Villa"><figcaption><b>Swanbay Villa</b><small>Biệt thự · 500 m²</small></figcaption></figure>
+  <figure data-src="mthouse-quang-cao-anh/bao-loc-homestay.jpg" data-cap="Bảo Lộc Homestay · 3.000 m²"><img src="mthouse-quang-cao-anh/bao-loc-homestay.jpg" alt="Bảo Lộc Homestay"><figcaption><b>Bảo Lộc</b><small>Homestay · 3.000 m²</small></figcaption></figure>
+  <figure data-src="mthouse-quang-cao-anh/jodi-da-lat.jpg" data-cap="Jodi Đà Lạt · 500 m²"><img src="mthouse-quang-cao-anh/jodi-da-lat.jpg" alt="Jodi Đà Lạt"><figcaption><b>Jodi Đà Lạt</b><small>Khách sạn · 500 m²</small></figcaption></figure>
+  <figure data-src="mthouse-quang-cao-anh/dtc-van-phong.jpg" data-cap="DTC Group · TP.HCM · 300 m²"><img src="mthouse-quang-cao-anh/dtc-van-phong.jpg" alt="Văn phòng DTC Group"><figcaption><b>DTC Group</b><small>Văn phòng · 300 m²</small></figcaption></figure>
+  <figure data-src="mthouse-quang-cao-anh/phan-thiet-homestay.jpg" data-cap="Phan Thiết Homestay"><img src="mthouse-quang-cao-anh/phan-thiet-homestay.jpg" alt="Phan Thiết Homestay"><figcaption><b>Phan Thiết</b><small>Homestay</small></figcaption></figure>
+  <figure data-src="mthouse-quang-cao-anh/the-rattan.jpg" data-cap="The Rattan Restaurant"><img src="mthouse-quang-cao-anh/the-rattan.jpg" alt="The Rattan Restaurant"><figcaption><b>The Rattan</b><small>Nhà hàng</small></figcaption></figure>
+  <figure data-src="mthouse-quang-cao-anh/quy-nhon-restaurant.jpg" data-cap="Quy Nhơn Restaurant"><img src="mthouse-quang-cao-anh/quy-nhon-restaurant.jpg" alt="Quy Nhơn Restaurant"><figcaption><b>Quy Nhơn</b><small>Nhà hàng</small></figcaption></figure>
+</div>
+
+<!-- ===== ĐỐI THỦ ===== -->
+<h2 class="sec-title"><svg class="i"><use href="#i-bino"/></svg>Đối thủ đang quảng cáo gì</h2>
+<p class="sec-sub">Xem trên Thư viện quảng cáo của Facebook · mẫu chạy càng lâu càng có khả năng đang ra khách</p>
+<div class="comp">
+  <div class="card">
+    <h2><svg class="i"><use href="#i-timer"/></svg>Mẫu chạy lâu nhất còn bật (tháng)</h2>
+    <div class="hbar">
+      <span>Đối thủ A</span><div class="track"><div class="fill" style="width:94%">34</div></div>
+      <span>Đối thủ B</span><div class="track"><div class="fill" style="width:44%">16</div></div>
+      <span>Đối thủ C</span><div class="track"><div class="fill" style="width:2%">0</div></div>
+      <div class="axis"><span>0</span><span>12</span><span>24</span><span>36</span></div>
+    </div>
+  </div>
+  <div class="card tbl-wrap">
+    <table class="ctab">
+      <thead><tr><th>Bên</th><th>Đang chạy</th><th>Học được</th></tr></thead>
+      <tbody>
+        <tr><td>A · thiết kế thi công, nhiều chi nhánh</td><td>Ảnh công trình bàn giao + tên villa + m² · video "cải tạo nhà phố cũ" có nút nhắn tin</td><td><span class="learn"><svg class="i"><use href="#i-bulb"/></svg>Video ngắn + nút nhắn tin; cuối tháng 11 chạy thông điệp làm nhà đầu năm</span></td></tr>
+        <tr><td>B · thiết kế căn hộ TP.HCM</td><td>3 câu chuyện căn hộ 88–121 m², ghi rõ dự án và phong cách</td><td><span class="learn"><svg class="i"><use href="#i-bulb"/></svg>Công thức tên dự án + m² + vấn đề gia chủ</span></td></tr>
+        <tr><td>C · nội thất gỗ cao cấp</td><td>Mới bật 2 mẫu: "vì sao chọn trọn gói thiết kế – thi công"</td><td><span class="learn"><svg class="i"><use href="#i-bulb"/></svg>Nói "một đầu mối" — đúng điều MT House đang làm</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== TỆP KHÁCH ===== -->
+<h2 class="sec-title"><svg class="i"><use href="#i-users"/></svg>Nhắm tới ai</h2>
+<p class="sec-sub">Hai nhóm khách, chạy hai nhóm quảng cáo riêng</p>
+<div class="aud">
+  <div class="card">
+    <div class="hd"><div class="ic"><svg class="i"><use href="#i-home"/></svg></div><h3>Chủ nhà</h3></div>
+    <div class="rowi"><svg class="i"><use href="#i-pin"/></svg>TP.HCM mở rộng · Đồng Nai</div>
+    <div class="rowi"><svg class="i"><use href="#i-user"/></svg>30–55 tuổi</div>
+    <div class="rowi"><svg class="i"><use href="#i-heart"/></svg>Nhà phố, biệt thự, xây nhà, kiến trúc</div>
+    <div class="rowi"><svg class="i"><use href="#i-video"/></svg>Video Swanbay, DTC Group</div>
+  </div>
+  <div class="card">
+    <div class="hd"><div class="ic"><svg class="i"><use href="#i-tent"/></svg></div><h3>Chủ homestay, quán, khách sạn</h3></div>
+    <div class="rowi"><svg class="i"><use href="#i-pin"/></svg>Lâm Đồng (Đà Lạt, Bảo Lộc, Phan Thiết) · Khánh Hòa · TP.HCM</div>
+    <div class="rowi"><svg class="i"><use href="#i-user"/></svg>28–55 tuổi</div>
+    <div class="rowi"><svg class="i"><use href="#i-heart"/></svg>Homestay, Airbnb, nhà hàng, quán cà phê</div>
+    <div class="rowi"><svg class="i"><use href="#i-video"/></svg>Ảnh Bảo Lộc, Jodi Đà Lạt, The Rattan</div>
+  </div>
+</div>
+<div class="pills"><span>Gom tệp từ tuần 1:</span><span>Xem 50% video · 30 ngày</span><span>Tương tác trang · 60 ngày</span><span>Vào website · 30 ngày</span><span>Đã nhắn tin · loại khỏi tệp lạnh</span></div>
+
+<!-- ===== LỊCH ===== -->
+<h2 class="sec-title"><svg class="i"><use href="#i-cal"/></svg>Lịch đăng bài và quảng cáo</h2>
+<p class="sec-sub">4 bài mỗi tuần: thứ 2 · thứ 4 · thứ 6 · chủ nhật</p>
+<div class="weeks">
+  <div class="card week"><div class="top"><b>Tuần 1</b><span>09–15/11</span></div><ul>
+    <li><span class="d">T2</span>Album Swanbay Villa</li>
+    <li><span class="d">T4</span>Quy trình 5 bước</li>
+    <li><span class="d">T6</span>Video 3D Swanbay</li>
+    <li><span class="d">CN</span>Làm nhà cuối năm cần chốt gì trước</li>
+    <li class="ad"><span class="d">ADS</span>Bật video + form · không sửa 3 ngày đầu</li></ul></div>
+  <div class="card week"><div class="top"><b>Tuần 2</b><span>16–22/11</span></div><ul>
+    <li><span class="d">T2</span>Album Bảo Lộc Homestay</li>
+    <li><span class="d">T4</span>Chi phí làm homestay gồm gì</li>
+    <li><span class="d">T6</span>Video công trường</li>
+    <li><span class="d">CN</span>Cảm nhận khách hàng</li>
+    <li class="ad"><span class="d">ADS</span>Tắt video thua · thêm video ① khi quay xong</li></ul></div>
+  <div class="card week"><div class="top"><b>Tuần 3</b><span>23–29/11</span></div><ul>
+    <li><span class="d">T2</span>Album Jodi Đà Lạt</li>
+    <li><span class="d">T4</span>Cải tạo căn hộ: giữ gì, bỏ gì</li>
+    <li><span class="d">T6</span>Văn phòng DTC Group</li>
+    <li><span class="d">CN</span>Trước và sau</li>
+    <li class="ad"><span class="d">ADS</span>Bật bám đuổi · "chốt thiết kế để khởi công sau Tết"</li></ul></div>
+  <div class="card week"><div class="top"><b>Tuần 4</b><span>30/11–06/12</span></div><ul>
+    <li><span class="d">T2</span>Chốt thiết kế tháng 12</li>
+    <li><span class="d">T4</span>Album The Rattan</li>
+    <li><span class="d">T6</span>Video ① bản 4:5</li>
+    <li><span class="d">CN</span>Cảm nhận khách hàng</li>
+    <li class="ad"><span class="d">ADS</span>Dồn tiền mẫu thắng · tổng kết 06/12</li></ul></div>
+</div>
+
+<!-- ===== CHỈ SỐ ===== -->
+<h2 class="sec-title"><svg class="i"><use href="#i-gauge"/></svg>Đo thế nào, tắt khi nào</h2>
+<p class="sec-sub">Mốc ban đầu là ước tính, sẽ thay bằng số thật sau 3–4 ngày</p>
+<div class="card tbl-wrap">
+  <table>
+    <thead><tr><th>Chỉ số</th><th>Mốc</th><th>Quyết định</th></tr></thead>
+    <tbody>
+      <tr class="star"><td><span class="lv up"><svg class="i"><use href="#i-star"/></svg>Khách đúng nhu cầu</span></td><td class="num">≥ 30% số form</td><td>Chỉ số chọn mẫu thắng, quan trọng nhất</td></tr>
+      <tr><td><span class="lv"><svg class="i"><use href="#i-timer"/></svg>Xem quá 3 giây</span></td><td class="num">≥ 25% người thấy</td><td><span class="lv cut"><svg class="i"><use href="#i-cut"/></svg></span> Dưới 20% → đổi đoạn mở đầu</td></tr>
+      <tr><td><span class="lv"><svg class="i"><use href="#i-eye"/></svg>Giá 1 lượt xem hết</span></td><td class="num">150–400đ</td><td><span class="lv cut"><svg class="i"><use href="#i-cut"/></svg></span> Trên 600đ sau 2 ngày → tắt</td></tr>
+      <tr><td><span class="lv"><svg class="i"><use href="#i-file"/></svg>Giá 1 form</span></td><td class="num">80–200k</td><td><span class="lv cut"><svg class="i"><use href="#i-cut"/></svg></span> 0 form sau 400k → đổi mẫu</td></tr>
+      <tr><td><span class="lv"><svg class="i"><use href="#i-msg"/></svg>Giá 1 tin nhắn bám đuổi</span></td><td class="num">25–60k</td><td><span class="lv up"><svg class="i"><use href="#i-up"/></svg></span> Rẻ nhất 3 ngày liền → thêm tiền</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="foot">Nguồn: Thư viện quảng cáo Facebook · ảnh công trình của MT House</p>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-label="Xem ảnh"><button type="button" aria-label="Đóng">×</button><img alt=""><p></p></div>
+
+<script>
+var lb = document.getElementById('lb');
+document.addEventListener('click', function (e) {
+  var f = e.target.closest('figure[data-src]');
+  if (f) { lb.querySelector('img').src = f.dataset.src; lb.querySelector('p').textContent = f.dataset.cap; lb.classList.add('on'); return; }
+  if (lb.classList.contains('on') && (e.target === lb || e.target.tagName === 'BUTTON')) lb.classList.remove('on');
+});
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.classList.remove('on'); });
+</script>
+</body>
+</html>

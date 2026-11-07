@@ -13,6 +13,7 @@ Trang chạy trên Vercel: https://theschool-gamma.vercel.app — push lên `mai
 | --- | --- | --- | --- |
 | `/` | `index.html` | THÉ School · báo cáo tuyển sinh 0–3 tuổi | **Không sửa thẳng** — sửa `Bao_cao_tuyen_sinh_2026-11-04/report_template.html` rồi chạy `build_html.py` (xem README) |
 | `/mthouse` | `mthouse.html` + `mthouse-anh/` | MT House · tính năng Tool báo cáo nội bộ | Trang tĩnh, sửa thẳng |
+| `/mthouse-quang-cao` | `mthouse-quang-cao.html` + `mthouse-quang-cao-anh/` | MT House · kế hoạch quảng cáo 4 tuần | Trang tĩnh, sửa thẳng |
 
 ## Thêm một trang mới (làm đủ cả 7 bước)
 
